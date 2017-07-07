@@ -8,6 +8,8 @@ This repo contains the following elements
 3. oe-markdown-link
 4. oe-resource-link
 5. oe-resource-page
+6. oe-icons
+7. oe-tap-emitter
 
 ### oe-hbox
 `oe-hbox` displays content horizontally. child elements occupy their default width and wrap around when 'oe-hbox'
@@ -25,3 +27,5 @@ width is not sufficient.
 ### oe-resource-page
 `oe-resource-page` loads a server resource and displays as a child. It is useful for displaying page-partials specially when stored as `UIResource` model. 
 
+### oe-tap-emitter
+`oe-tap-emitter` is a non-visual wrapper that emits the specified event when `content` element is tapped.
