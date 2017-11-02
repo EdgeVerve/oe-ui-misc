@@ -14,7 +14,7 @@
 
 <!--
 `oe-widget-container`
-Widget to reaarange elements within the container
+Widget to rearrange elements within the container
 
 @demo demo/demo-oe-widget-container.html 
 -->
@@ -90,7 +90,7 @@ Widget to reaarange elements within the container
           </div>
         </paper-menu-button>
       </div>
-      <div class="gridster">
+      <div id="thegridster" class="gridster">
         <content id="contentElement"></content>
       </div>
     </div>
@@ -152,7 +152,7 @@ Widget to reaarange elements within the container
             self._gridConfig
             .widgetMargin))) / self._gridConfig.columns));
           if (self.gridster) self.gridster.destroy(false);
-          var gridster = $('.gridster'); // eslint-disable-line no-undef
+          var gridster = $(self.$.thegridster); // eslint-disable-line no-undef
           self.gridster = gridster.gridster({
             widget_selector: '.widget-element:not(.hide-widget-element)',
             widget_margins: [self._gridConfig.widgetMargin, self._gridConfig.widgetMargin],
