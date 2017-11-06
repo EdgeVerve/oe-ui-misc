@@ -21,7 +21,7 @@
     "oe-utils": "^1.0.0",
     "oe-i18n-msg": "^1.0.0",
     "moment": "^2.18.1",
-    "oe-ajax": "^1.0.0",
+    "oe-ajax": "^1.1.0",
     "iron-media-query": "1.0.8"
   },
   "devDependencies": {
@@ -30,11 +30,11 @@
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
     "iron-test-helpers": "^1.4.1",
-    "oe-input": "^1.0.0",
-    "oe-date": "^1.0.0",
-    "oe-checkbox": "^1.0.0",
+    "oe-input": "^1.1.0",
+    "oe-date": "^1.1.0",
+    "oe-checkbox": "^1.1.0",
     "fakerest": "^2.0.0",
-    "oe-data-table": "^1.0.0",
+    "oe-data-table": "^1.1.0",
     "paper-fab": "^1.2.2",
     "paper-scroll-header-panel": "^1.0.16",
     "paper-card": "PolymerElements/paper-card#^1.1.6"
