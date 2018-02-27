@@ -120,6 +120,23 @@
         {"label":"Asset Details","isDisabled":true,"hasError":false,"isCompleted":false}]' value='1'></oe-stepper>
       </template>
     </demo-snippet>
+
+    <h3>Vertical stepper with second step selected</h3>
+    <h4>Note that parent of vertical oe-stepper  should have sufficient height or the parent should have style "overflow: auto;" to allow scroll.</h4>
+    <demo-snippet>
+      <template>
+        <div style="height: 700px;">
+          <oe-stepper vertical value="1" steps='[{"label":"Test1","icon":"icons:supervisor-account","isDisabled":false,"hasError":false,"isCompleted":false},
+          {"label":"Test2","icon":"icons:alarm","isDisabled":false,"hasError":false,"isCompleted":false},
+          {"label":"Test3","icon":"icons:android","isDisabled":false,"hasError":false,"isCompleted":false},
+          {"label":"Test4","icon":"icons:build","isDisabled":false,"hasError":false,"isCompleted":false},
+          {"label":"Test5","icon":"icons:card-travel","isDisabled":false,"hasError":false,"isCompleted":false},
+          {"label":"Test6","icon":"icons:cloud-queue","isDisabled":false,"hasError":false,"isCompleted":false},
+          {"label":"Test7","icon":"icons:event-seat","isDisabled":false,"hasError":false,"isCompleted":false}]'>
+          </oe-stepper>
+        </div>
+      </template>
+    </demo-snippet>
   </div>
 </body>
 

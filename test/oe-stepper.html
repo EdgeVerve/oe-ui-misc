@@ -58,6 +58,16 @@
     </template>
   </test-fixture>
 
+  <test-fixture id="verticalstep">
+    <template>
+      <div style="height: 300px;">
+        <oe-stepper vertical steps='[{"label":"Financial Details","isDisabled":false,"hasError":false,"isCompleted":true,"icon":"icons:build"},
+        {"label":"Demographic Details","isDisabled":false,"hasError":true,"isCompleted":false,"icon":"icons:supervisor-account"},
+        {"label":"Asset Details","isDisabled":false,"hasError":false,"isCompleted":false,"icon":"icons:alarm"}]' value='1'></oe-stepper>
+      </div>
+    </template>
+  </test-fixture>
+
   <script>
     suite('basic', function () {
 
@@ -321,6 +331,49 @@
             assert.equal(iconThirdStep.icon, "icons:alarm");
           });
         }, 100);
+      });
+
+      test('Check vertical stepper with label inline', function () {
+        var ele = fixture('verticalstep');
+        var el = ele.querySelector('oe-stepper');
+        assert.isTrue(el.value == 1, 'second step is selected');
+        flush(function() {
+          setTimeout(function() {
+            var steps = el.querySelectorAll(".stepsection");
+            var iconFirstStep = steps[0].querySelector("iron-icon");
+            assert.equal(iconFirstStep.icon, "icons:check");
+            var iconSecondStep = steps[1].querySelector("iron-icon");
+            assert.equal(iconSecondStep.icon, "icons:report-problem");
+            var iconThirdStep = steps[2].querySelector("iron-icon");
+            assert.equal(iconThirdStep.icon, "icons:alarm");
+            var line = el.querySelector("#line");
+            assert.equal(line.style.left, "calc(50% - var(--oe-stepper-circle-size,40px)/2)");
+            var filling = el.querySelector("#filling");
+            assert.equal(filling.style.left, "calc(50% - var(--oe-stepper-circle-size,40px)/2)");
+          }, 200);
+        });
+      });
+
+      test('Check vertical stepper with label bottom', function () {
+        var ele = fixture('verticalstep');
+        var el = ele.querySelector('oe-stepper');
+        el.set("labelPosition", "bottom");
+        assert.isTrue(el.value == 1, 'second step is selected');
+        flush(function() {
+          setTimeout(function() {
+            var steps = el.querySelectorAll(".stepsection");
+            var iconFirstStep = steps[0].querySelector("iron-icon");
+            assert.equal(iconFirstStep.icon, "icons:check");
+            var iconSecondStep = steps[1].querySelector("iron-icon");
+            assert.equal(iconSecondStep.icon, "icons:report-problem");
+            var iconThirdStep = steps[2].querySelector("iron-icon");
+            assert.equal(iconThirdStep.icon, "icons:alarm");
+            var line = el.querySelector("#line");
+            assert.equal(line.style.left, "");
+            var filling = el.querySelector("#filling");
+            assert.equal(filling.style.left, "");
+          }, 200);
+        });
       });
     });
   </script>

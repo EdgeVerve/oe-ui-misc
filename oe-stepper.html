@@ -77,6 +77,10 @@ CSS Variable | Description | Default
                 position: relative;
             }
 
+            :host([vertical]) .card-header-section {
+                height: 100%;
+            }
+
             .line {
                 background-color:var(--oe-stepper-line-color, #dfdfdf);
                 height: var(--oe-stepper-line-size, 2px);
@@ -84,6 +88,15 @@ CSS Variable | Description | Default
                 top: calc(var(--oe-stepper-circle-size, 40px)/2);
                 left: 30px;
                 right: 30px;
+            }
+
+            .line-vertical {
+                background-color:var(--oe-stepper-line-color, #dfdfdf);
+                position: absolute;
+                width: var(--oe-stepper-line-size, 2px);;
+                top:0;
+                left: 50%;
+                height: calc(100% - var(--oe-stepper-circle-size, 40px));
             }
 
             .no-line {
@@ -110,12 +123,28 @@ CSS Variable | Description | Default
                 transform-origin: left center;
             }
 
+            :host([vertical]) #filling {
+                -webkit-transform: scaleY(0);
+                -moz-transform: scaleY(0);
+                -ms-transform: scaleY(0);
+                -o-transform: scaleY(0);
+                transform: scaleY(0);
+                -webkit-transform-origin: top center;
+                -moz-transform-origin: top center;
+                -ms-transform-origin: top center;
+                -o-transform-origin: top center;
+                transform-origin: top center;
+            }
+
+            :host([vertical]) iron-selector {
+                height: 100%;
+            }
+
             .stepsection {
                 position: relative;
                 font-size: 13.5px;
                 color: var(--stepsection-primary-color, --default-primary-color);
                 letter-spacing: 0;
-                padding: 0px 5px;
                 text-align: center;
             }
 
@@ -187,9 +216,9 @@ CSS Variable | Description | Default
         <iron-media-query query="(min-width: 600px)" query-matches="{{stepper}}"></iron-media-query>
         <template is="dom-if" if="{{stepper}}">
             <div class="card-header-section stepper-background">
-                <span id="line" class$="[[_showLine(steps)]]"></span>
-                <span id="filling" class="line" style$="transform: scale({{_calculateFilling(steps, value)}});"></span>
-                <iron-selector class="layout horizontal justified" selected="{{value}}">
+                <span id="line" class$="[[_showLine(steps, vertical)]]" style$="{{_calculateLineOffset(vertical, labelPosition)}}"></span>
+                <span id="filling" class$="[[_showLine(steps, vertical)]]" style$="{{_calculateFilling(steps, value, vertical, labelPosition)}}"></span>
+                <iron-selector class$="[[_getLayoutStyle(vertical)]]" selected="{{value}}">
                     <template is="dom-repeat" items="{{steps}}">
                         <span class="stepsection stepper-background">
                             <span class$="[[_getDivClass(item.*)]]" on-tap="_handleTap">
@@ -277,6 +306,14 @@ CSS Variable | Description | Default
             },
 
             /**
+            * Property reflecting the stepper orientation.
+            */
+            vertical: {
+                type: Boolean,
+                value: false
+            },
+
+            /**
             * Property reflecting the selected step label.
             */
             selectedLabel: {
@@ -285,21 +322,33 @@ CSS Variable | Description | Default
                 notify: true
             },
 
+            /**
+            * Property reflecting the selected step item.
+            */
             selectedItem: {
                 type: Object,
                 notify: true
             },
 
+            /**
+            * Property reflecting the label position (inline/bottom).
+            */
             labelPosition: {
                 type: String,
                 value: "inline"
             },
 
+            /**
+            * Boolean property reflecting to show error icon.
+            */
             showErrorIcon: {
                 type: Boolean,
                 value: true
             },
 
+            /**
+            * Boolean property reflecting to show completed icon.
+            */
             showCompletedIcon: {
                 type: Boolean,
                 value: true
@@ -311,6 +360,35 @@ CSS Variable | Description | Default
         */
         _displayIndex: function(index) {
             return index + 1;
+        },
+
+        /**
+        * Function that sets the layout style of iron-selector in oe-stepper
+        * @param {Boolean} vertical Boolean which tells whether oe-stepper vertical or horizontal
+        * @return {String} List of classes to be added to iron-selector
+        */
+        _getLayoutStyle: function(vertical) {
+            var classList = "layout justified ";
+            if (vertical) {
+                classList += "vertical";
+            } else {
+                classList += "horizontal";
+            }
+            return classList;
+        },
+
+        /**
+        * Function that sets the css of the steps
+        * @param {Boolean} vertical Boolean which tells whether oe-stepper vertical or horizontal
+        * @param {String} labelPosition Property of oe-stepper for placement of label
+        * @return {String} Style to be added for offset of line
+        */
+        _calculateLineOffset: function(vertical, labelPosition) {
+            if (vertical && labelPosition === "inline") {
+                return "left: calc(50% - var(--oe-stepper-circle-size,40px)/2)";
+            } else {
+                return "";
+            }
         },
 
         /**
@@ -390,7 +468,7 @@ CSS Variable | Description | Default
          * @param {Number} step Current step number
          * @return {String}
          */
-        _calculateFilling: function(steps, step) {
+        _calculateFilling: function(steps, step, vertical, labelPosition) {
             var ratio;
             if (steps.length === undefined || step === 0) {
                 ratio = 0;
@@ -398,7 +476,19 @@ CSS Variable | Description | Default
                 ratio = (step)/(steps.length - 1);
             }
 
-            return ratio+", 1";
+            var scale;
+            if (vertical) {
+                scale = "1, " + ratio;
+            } else {
+                scale = ratio + ", 1";
+            }
+
+            var style = "transform: scale(" + scale + ");"
+            if (vertical && labelPosition === "inline") {
+                style += "left: calc(50% - var(--oe-stepper-circle-size,40px)/2);";
+            }
+
+            return style;
         },
 
         /**
@@ -408,13 +498,21 @@ CSS Variable | Description | Default
          * @param {Array} steps
          * @return {String}
          */
-        _showLine: function(steps) {
+        _showLine: function(steps, vertical) {
             if (!steps || (steps && steps.length <= 1)) {
                 return "no-line";
+            }
+            if (vertical) {
+                return "line-vertical";
             }
             return "line";
         },
 
+        /**
+        * Function that sets the icon for a step when change in the steps array
+        * @param {Object} itemChanges Object with changes of current step
+        * @return {String} iron icon value which has error/completed/custom icon
+        */
         _getStepIcon: function(itemChanges) {
             var item = itemChanges.base;
             if (item.hasError && this.showErrorIcon) {
@@ -426,6 +524,11 @@ CSS Variable | Description | Default
             }
         },
 
+        /**
+        * Function that checks whether step should show icon or step number
+        * @param {Object} itemChanges Object with changes of current step
+        * @return {Boolean} Return true/false whether to show icon or step number
+        */
         _hasIcon: function(itemChanges) {
             var item = itemChanges.base;
             if (item.hasError && this.showErrorIcon) {
