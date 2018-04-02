@@ -54,7 +54,7 @@
     <h3>Stepper with first step selected : default selection</h3>
     <demo-snippet>
       <style is="custom-style">
-        oe-stepper{
+        oe-stepper.custom{
             --accent-color: #FFAE03;
             --disable-accent-color: #c89426;
             --light-primary-color: #F5F5F5;
@@ -71,7 +71,7 @@
         }
       </style>
       <template>
-        <oe-stepper steps='[{"label":"Financial Details","isDisabled":false,"hasError":true,"isCompleted":false},
+        <oe-stepper class="custom" steps='[{"label":"Financial Details","isDisabled":false,"hasError":true,"isCompleted":false},
         {"label":"Demographic Details","isDisabled":true,"hasError":false,"isCompleted":false},
         {"label":"Asset Details","isDisabled":true,"hasError":false,"isCompleted":false},
         {"label":"Location Details","isDisabled":false,"hasError":false,"isCompleted":false},
@@ -125,8 +125,8 @@
     <h4>Note that parent of vertical oe-stepper  should have sufficient height or the parent should have style "overflow: auto;" to allow scroll.</h4>
     <demo-snippet>
       <template>
-        <div style="height: 700px;">
-          <oe-stepper vertical value="1" steps='[{"label":"Test1","icon":"icons:supervisor-account","isDisabled":false,"hasError":false,"isCompleted":false},
+        <div style="height: 500px;" class="layout vertical center">
+          <oe-stepper id="vertical" vertical class="flex" value="1" steps='[{"label":"Test1","icon":"icons:supervisor-account","isDisabled":false,"hasError":false,"isCompleted":false},
           {"label":"Test2","icon":"icons:alarm","isDisabled":false,"hasError":false,"isCompleted":false},
           {"label":"Test3","icon":"icons:android","isDisabled":false,"hasError":false,"isCompleted":false},
           {"label":"Test4","icon":"icons:build","isDisabled":false,"hasError":false,"isCompleted":false},

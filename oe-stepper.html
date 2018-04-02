@@ -58,6 +58,7 @@ CSS Variable | Description | Default
 `--oe-stepper-completed-fill`       | Color applied to fill icon of completed step  | `white`
 `--oe-stepper-label-width`          | Max width to apply for label truncating       | `100px`
 `--dark-disable-color`              | Color applied to disabled step label          | `--dark-accent-color`
+`--oe-stepper-data`                 | Mixin applied to the step label               | {}
 
 @demo demo/demo-oe-stepper.html
 -->
@@ -204,6 +205,7 @@ CSS Variable | Description | Default
                 overflow: hidden;
                 display: inline-block;
                 padding: 0 2px;
+                @apply(--oe-stepper-data);
             }
 
             .disable {
@@ -216,12 +218,14 @@ CSS Variable | Description | Default
         <iron-media-query query="(min-width: 600px)" query-matches="{{stepper}}"></iron-media-query>
         <template is="dom-if" if="{{stepper}}">
             <div class="card-header-section stepper-background">
-                <span id="line" class$="[[_showLine(steps, vertical)]]" style$="{{_calculateLineOffset(vertical, labelPosition)}}"></span>
-                <span id="filling" class$="[[_showLine(steps, vertical)]]" style$="{{_calculateFilling(steps, value, vertical, labelPosition)}}"></span>
+                <template is="dom-if" restamp if="[[showProgress]]">
+                    <span id="line" class$="[[_showLine(steps, vertical)]]" style$="{{_calculateLineOffset(vertical, labelPosition)}}"></span>
+                    <span id="filling" class$="[[_showLine(steps, vertical)]]" style$="{{_calculateFilling(steps, value, vertical, labelPosition)}}"></span>        
+                </template>
                 <iron-selector class$="[[_getLayoutStyle(vertical)]]" selected="{{value}}">
-                    <template is="dom-repeat" items="{{steps}}">
+                    <template is="dom-repeat" items="{{steps}}" on-rendered-item-count-changed="_redrawLines">
                         <span class="stepsection stepper-background">
-                            <span class$="[[_getDivClass(item.*)]]" on-tap="_handleTap">
+                            <span class$="[[_getDivClass(item.*,labelPosition)]]" on-tap="_handleTap">
                                 <template is="dom-if" if="[[_hasIcon(item.*)]]">
                                     <span class="layout horizontal center-center icon">
                                         <iron-icon icon="{{_getStepIcon(item.*)}}"></iron-icon>
@@ -247,7 +251,7 @@ CSS Variable | Description | Default
                         <template is="dom-repeat" items="{{steps}}">
                             <paper-item class="pointer" disabled$="[[item.isDisabled]]" on-tap="_handleTap">
                                 <span class="stepsection">
-                                    <span class$="[[_getDivClass(item.*)]]">
+                                    <span class$="[[_getDivClass(item.*,labelPosition)]]">
                                         <template is="dom-if" if="[[_hasIcon(item.*)]]">
                                             <span class="layout horizontal center-center icon">
                                                 <iron-icon icon="{{_getStepIcon(item.*)}}"></iron-icon>
@@ -385,7 +389,17 @@ CSS Variable | Description | Default
         */
         _calculateLineOffset: function(vertical, labelPosition) {
             if (vertical && labelPosition === "inline") {
-                return "left: calc(50% - var(--oe-stepper-circle-size,40px)/2)";
+                var circleSize = 40;
+                if(this._styleProperties){
+                    var customSize = this._styleProperties['--oe-stepper-circle-size'];
+                    if(customSize && customSize.endsWith('px')){
+                        var n = customSize.slice(0,-2);
+                        if(!isNaN(n)){
+                            circleSize = Number.parseInt(n);
+                        }
+                    }
+                }
+                return ("left: "+circleSize/2+"px");
             } else {
                 return "";
             }
@@ -396,9 +410,9 @@ CSS Variable | Description | Default
         * @param {Object} itemChanges Object with changes of current step
         * @return {String} List of classes to be added to current step
         */
-        _getDivClass: function(itemChanges) {
+        _getDivClass: function(itemChanges,labelPosition) {
             var item = itemChanges.base;
-            var classList = "flex layout center-center";
+            var classList = "flex layout center";
             if (this.labelPosition === "bottom") {
                 classList += " vertical";
             } else {
@@ -428,7 +442,8 @@ CSS Variable | Description | Default
         * Wait added for retrieving the latest values for the selected step index and the label
         */
         _handleTap: function() {
-            this.async(function() {/*wait added to return the current selected step */
+            this.async(function() {
+                /*wait added to return the current selected step */
                 this.fire('oe-stepper-tap', {
                     selectedIndex: this.value,
                     selectedLabel: this.selectedLabel
@@ -485,7 +500,17 @@ CSS Variable | Description | Default
 
             var style = "transform: scale(" + scale + ");"
             if (vertical && labelPosition === "inline") {
-                style += "left: calc(50% - var(--oe-stepper-circle-size,40px)/2);";
+                var circleSize = 40;
+                if(this._styleProperties){
+                    var customSize = this._styleProperties['--oe-stepper-circle-size'];
+                    if(customSize && customSize.endsWith('px')){
+                        var n = customSize.slice(0,-2);
+                        if(!isNaN(n)){
+                            circleSize = Number.parseInt(n);
+                        }
+                    }
+                }
+                style += "left: "+circleSize/2+"px;";
             }
 
             return style;
@@ -538,6 +563,12 @@ CSS Variable | Description | Default
             } else {
                 return item.icon?true:false;
             }
+        },
+        _redrawLines:function(){
+            this.set('showProgress',false);
+            this.async(function(){
+                this.set('showProgress',true);
+            },200);
         }
     });
 </script>
