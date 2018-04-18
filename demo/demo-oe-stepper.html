@@ -51,6 +51,21 @@
       </template>
     </demo-snippet>
 
+    <h3>Stepper with fixed placements</h3>
+    <p>By setting the attribute 'spread-value' with a number , the steps will be seperated by the set fixed pixels distance.</p>
+    <demo-snippet>
+      <template>
+        <oe-stepper spread-value="30" label-position='bottom' steps='[{"label":"Test Step 1","isDisabled":false,"hasError":false,"isCompleted":false},
+        {"label":"Test Step 2","isDisabled":false,"hasError":false,"isCompleted":false},
+        {"label":"Test Step 3","isDisabled":false,"hasError":false,"isCompleted":false},
+        {"label":"Test Step 4","isDisabled":false,"hasError":false,"isCompleted":false},
+        {"label":"Test Step 5","isDisabled":false,"hasError":false,"isCompleted":false},
+        {"label":"Test Step 6","isDisabled":false,"hasError":false,"isCompleted":false},
+        {"label":"Test Step 7","isDisabled":false,"hasError":false,"isCompleted":false}]'>
+        </oe-stepper>
+      </template>
+    </demo-snippet>
+
     <h3>Stepper with first step selected : default selection</h3>
     <demo-snippet>
       <style is="custom-style">

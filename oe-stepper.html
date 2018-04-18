@@ -78,9 +78,14 @@ CSS Variable | Description | Default
                 position: relative;
             }
 
-            :host([vertical]) .card-header-section {
+            :host([vertical]):not([spread-value]) .card-header-section {
                 height: 100%;
             }
+
+            :host([spread-value]):not([vertical]) .card-header-section {
+                display: inline-block;
+            }
+
 
             .line {
                 background-color:var(--oe-stepper-line-color, #dfdfdf);
@@ -222,9 +227,9 @@ CSS Variable | Description | Default
                     <span id="line" class$="[[_showLine(steps, vertical)]]" style$="{{_calculateLineOffset(vertical, labelPosition)}}"></span>
                     <span id="filling" class$="[[_showLine(steps, vertical)]]" style$="{{_calculateFilling(steps, value, vertical, labelPosition)}}"></span>        
                 </template>
-                <iron-selector class$="[[_getLayoutStyle(vertical)]]" selected="{{value}}">
+                <iron-selector class$="[[_getLayoutStyle(vertical,spreadValue)]]" selected="{{value}}">
                     <template is="dom-repeat" items="{{steps}}" on-rendered-item-count-changed="_redrawLines">
-                        <span class="stepsection stepper-background">
+                        <span class="stepsection stepper-background" style$="[[_getSpreadStyle(vertical,spreadValue,index)]]">
                             <span class$="[[_getDivClass(item.*,labelPosition)]]" on-tap="_handleTap">
                                 <template is="dom-if" if="[[_hasIcon(item.*)]]">
                                     <span class="layout horizontal center-center icon">
@@ -314,7 +319,8 @@ CSS Variable | Description | Default
             */
             vertical: {
                 type: Boolean,
-                value: false
+                value: false,
+                reflectToAttribute:true
             },
 
             /**
@@ -357,6 +363,14 @@ CSS Variable | Description | Default
                 type: Boolean,
                 value: true
             },
+            /**
+            * Number property that determines the distance between steps.
+            */
+            spreadValue: {
+                type: Number,
+                reflectToAttribute:true,
+                value:null
+            },
         },
 
         /**
@@ -371,8 +385,13 @@ CSS Variable | Description | Default
         * @param {Boolean} vertical Boolean which tells whether oe-stepper vertical or horizontal
         * @return {String} List of classes to be added to iron-selector
         */
-        _getLayoutStyle: function(vertical) {
-            var classList = "layout justified ";
+        _getLayoutStyle: function(vertical,spreadValue) {
+            var classList = "layout ";
+            if(spreadValue){
+                classList += "start ";
+            }else{
+                classList += "justified ";
+            }
             if (vertical) {
                 classList += "vertical";
             } else {
@@ -569,6 +588,13 @@ CSS Variable | Description | Default
             this.async(function(){
                 this.set('showProgress',true);
             },200);
+        },
+        _getSpreadStyle:function(vertical,spreadValue,index){
+            if(!spreadValue || spreadValue < 0 || index === (this.steps.length-1)){
+                return "";
+            }
+            var spreadDistance = spreadValue+"px;";
+            return (vertical ? "margin-bottom:" : "margin-right:")+spreadDistance;
         }
     });
 </script>
