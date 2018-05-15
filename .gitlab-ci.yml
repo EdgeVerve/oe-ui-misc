@@ -4,9 +4,9 @@ variables:
 .run_template: &run_script
   stage: test
   script:
-    - if exist wct.conf.js del wct.conf.js
-    - if exist wct.conf.json del wct.conf.json
-    - copy /Y \multi-runner\builds\wct.conf.js .
+    #- if exist wct.conf.js del wct.conf.js
+    #- if exist wct.conf.json del wct.conf.json
+    #- copy /Y \multi-runner\builds\wct.conf.js .
     - call bower install
     - call wct --skip-selenium-install
   tags:
