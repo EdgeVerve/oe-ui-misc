@@ -1,5 +1,5 @@
 <!-- 
-  ©2016-2017 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
+  ©2018-2019 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
   Bangalore, India. All Rights Reserved.
 -->
 
@@ -10,16 +10,19 @@
   <title>oe-widget-container test</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../../promise-polyfill/promise-polyfill.html">
-  <script src="../../web-component-tester/browser.js"></script>
-  <script src="../../iron-test-helpers/test-helpers.js"></script>
-  <script src="../../iron-test-helpers/mock-interactions.js"></script>
-  <script src="../../fakerest/dist/FakeRest.min.js"></script>
-  <link rel="import" href="../oe-widget-container.html">
-  <link rel="import" href="../../oe-data-table/oe-data-table.html">
-  <link rel="import" href="../../paper-card/paper-card.html">
-  <link rel="import" href="../demo/widgets/chat-bot.html">
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+
+  <script src="../node_modules/fakerest/dist/FakeRest.min.js"></script>
+  <script src="../node_modules/sinon/pkg/sinon.js"></script>
+  <script type="module">
+  import 'oe-data-table/oe-data-table.js';
+  import '../oe-widget-container.js';
+  // import '../demo/widgets/chat-bot.js';
+  </script>
 </head>
 
 <body>
@@ -88,12 +91,17 @@
       </oe-widget-container>
     </template>
   </test-fixture>
-  <script>
+  <script type="module">
+  import '@polymer/iron-test-helpers/test-helpers.js';
+  import '@polymer/iron-test-helpers/mock-interactions.js';
+  import '@polymer/paper-card/paper-card.js';
+  import 'oe-data-table/oe-data-table.js';
+  
     var element, testElement, server; // eslint-disable-line no-unused-vars
 
     suite('oe-widget-container', function () {
 
-      setup(function () {
+      setup(function (done) {
         server = sinon.fakeServer.create();
         server.autoRespond = true;
         server.respondImmediately = true;
@@ -104,9 +112,10 @@
           }, 'I am here to help you with travel plans');
         });
         var divContainer = fixture('oe-widget-container-fixture');
-        element = divContainer.querySelector('#configWidget');
         var divBasicContainer = fixture('basic-fixture');
-        testElement = divBasicContainer.querySelector('oe-widget-container');
+        flush(function(){
+          element = divContainer.querySelector('#configWidget');
+          testElement = divBasicContainer.querySelector('oe-widget-container');
         var dataTable = document.getElementById('simple-table');
         dataTable.set('columns', [{
           key: 'id',
@@ -131,7 +140,9 @@
           id: 4,
           name: 'Tester'
         }]);
-      });
+      done();
+        })
+        });
 
       teardown(function () {
         server.restore();
@@ -157,7 +168,7 @@
       test('rename the name attribute if the names of two widgets are the same', function(done) {
           var element = fixture('name-fixture');
           flush(function() {
-              var gridsterNodes = Polymer.dom(element.$.contentElement).getDistributedNodes();
+              var gridsterNodes = element.$.contentElement.assignedNodes();
               var nodeList = [].filter.call(gridsterNodes, function(item) {
                   if (item.nodeType == Node.ELEMENT_NODE) {
                       return true;
@@ -189,7 +200,7 @@
 
       test('check if the oe-widget-container is initialized using the default config if widgetConfig is not set', function(done) {
           flush(function() {
-              var gridsterNodes = Polymer.dom(element.$.contentElement).getDistributedNodes();
+              var gridsterNodes = element.$.contentElement.assignedNodes();
               var nodeList = [].filter.call(gridsterNodes, function(item) {
                   if (item.nodeType == Node.ELEMENT_NODE) {
                       return true;
@@ -206,13 +217,22 @@
           });
       });*/
       test('test to hide/show widgets from the settings menu', function (done) {
+        
+        var divContainer = fixture('oe-widget-container-fixture');
+        var divBasicContainer = fixture('basic-fixture');
+        flush(function(){
+          //element = divContainer.querySelector('#configWidget');
+          element = divBasicContainer.querySelector('oe-widget-container');
+        debugger;
+        element.set('autoArrange',true);
+        element._refreshWidgets();
         flush(function () {
-          var menu = Polymer.dom(element.root).querySelector('#settings');
+          var menu = element.shadowRoot.querySelector('#settings');
           MockInteractions.tap(menu, {
             'emulateTouch': true
           });
-          element.async(function () {
-            var gridsterNodes = Polymer.dom(element.$.contentElement).getDistributedNodes();
+          flush(function () {
+            var gridsterNodes = element.$.contentElement.assignedNodes();
             var nodeList = [].filter.call(gridsterNodes, function (item) {
               if (item.nodeType == Node.ELEMENT_NODE) {
                 return true;
@@ -220,22 +240,21 @@
             });
             assert.equal(nodeList[0].getAttribute('name'), 'chatbot');
             assert.equal(nodeList[0].classList.contains('hide-widget-element'), false);
-            var widgetcheck = Polymer.dom(element.root).querySelectorAll('#settings paper-checkbox');
+            var widgetcheck = element.shadowRoot.querySelectorAll('#settings paper-checkbox');
+            
             assert.equal(widgetcheck.length, 2);
             assert.equal(widgetcheck[0].checked, true);
-            MockInteractions.tap(widgetcheck[0], {
-              'emulateTouch': true
-            });
-            widgetcheck[0].fire('change');
+            MockInteractions.tap(widgetcheck[0]);
+            // widgetcheck[0].fire('change');
             element.async(function () {
               assert.equal(widgetcheck[0].checked, false);
-              var saveConfig = Polymer.dom(element.root).querySelector('#saveConfig');
+              var saveConfig = element.shadowRoot.querySelector('#saveConfig');
               MockInteractions.tap(saveConfig, {
                 'emulateTouch': true
               });
               flush(function () {
                 assert.equal(menu.opened, false);
-                var gridsterNodes = Polymer.dom(element.$.contentElement).getDistributedNodes();
+                var gridsterNodes = element.$.contentElement.assignedNodes();
                 var nodeList = [].filter.call(gridsterNodes, function (item) {
                   if (item.nodeType == Node.ELEMENT_NODE) {
                     return true;
@@ -247,24 +266,22 @@
                   'emulateTouch': true
                 });
                 element.async(function () {
-                  var widgetcheck = Polymer.dom(element.root).querySelectorAll(
+                  var widgetcheck = element.shadowRoot.querySelectorAll(
                     '#settings paper-checkbox');
                   assert.equal(widgetcheck.length, 2);
                   assert.equal(widgetcheck[0].checked, false);
-                  MockInteractions.tap(widgetcheck[0], {
-                    'emulateTouch': true
-                  });
+                  MockInteractions.tap(widgetcheck[0]);
                   widgetcheck[0].fire('change');
                   element.async(function () {
                     assert.equal(widgetcheck[0].checked, true);
-                    var saveConfig = Polymer.dom(element.root).querySelector(
+                    var saveConfig = element.shadowRoot.querySelector(
                       '#saveConfig');
                     MockInteractions.tap(saveConfig, {
                       'emulateTouch': true
                     });
                     flush(function () {
                       assert.equal(menu.opened, false);
-                      var gridsterNodes = Polymer.dom(element.$.contentElement).getDistributedNodes();
+                      var gridsterNodes = element.$.contentElement.assignedNodes();
                       var nodeList = [].filter.call(gridsterNodes, function (item) {
                         if (item.nodeType == Node.ELEMENT_NODE) {
                           return true;
@@ -281,30 +298,40 @@
             }, 100);
           }, 100);
         });
+        });
       });
       test('check if the oe-widget-container is initialized using the widgetConfig if set', function (done) {
-        element.set('widgetConfig', {
+        var divContainer = fixture('oe-widget-container-fixture');
+        var divBasicContainer = fixture('basic-fixture');
+        flush(function(){
+          //element = divContainer.querySelector('#configWidget');
+          element = divBasicContainer.querySelector('oe-widget-container');
+        debugger;
+        element.set('config', {
           'widgetMargin': 32,
           'columns': 4,
-          'enableResize': true,
-          'widgets': [{
+          'enableResize': true
+        });
+        element.set('widgets.0.conf',{
             'name': 'chatbot',
             'hidden': false,
-            'width': 1,
-            'height': 2,
-            'row': 2,
-            'col': 2
-          }, {
-            'name': 'datatable',
-            'hidden': false,
-            'width': 2,
-            'height': 2,
+            'sizeX': 1,
+            'sizeY': 2,
             'row': 1,
             'col': 1
-          }]
-        });
+          })
+        element.set('widgets.1.conf',{
+            'name': 'datatable',
+            'hidden': false,
+            'sizeX': 2,
+            'sizeY': 2,
+            'row': 2,
+            'col': 2
+          })
+        element.set('enableDragging',true);
+        element.render();
         flush(function () {
-          var gridsterNodes = Polymer.dom(element.$.contentElement).getDistributedNodes();
+          var gridsterNodes = element.$.contentElement.assignedNodes();
           var nodeList = [].filter.call(gridsterNodes, function (item) {
             if (item.nodeType == Node.ELEMENT_NODE) {
               return true;
@@ -315,14 +342,15 @@
             assert.equal(nodeList[1].hidden, false);
             assert.equal(nodeList[1].getAttribute('data-sizex'), 2);
             assert.equal(nodeList[1].getAttribute('data-sizey'), 2);
-            assert.equal(nodeList[1].getAttribute('data-row'), 1);
-            assert.equal(nodeList[1].getAttribute('data-col'), 1);
+            assert.equal(nodeList[1].getAttribute('data-row'), 2);
+            assert.equal(nodeList[1].getAttribute('data-col'), 2);
             assert.equal(nodeList[0].getAttribute('data-sizex'), 1);
             assert.equal(nodeList[0].getAttribute('data-sizey'), 2);
             done();
           });
         });
       });
+    });
     });
 
   </script>

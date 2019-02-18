@@ -1,5 +1,5 @@
 <!-- 
-  ©2016-2017 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
+  ©2018-2019 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
   Bangalore, India. All Rights Reserved.
 -->
 
@@ -13,14 +13,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
 
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-
-  <script src="../../web-component-tester/browser.js"></script>
-  <script src="../../iron-test-helpers/test-helpers.js"></script>
-  <script src="../../iron-test-helpers/mock-interactions.js"></script>
-
-  <link rel="import" href="../oe-resource-link.html">
+  <script src="../node_modules/fakerest/dist/FakeRest.min.js"></script>
+  <script src="../node_modules/sinon/pkg/sinon.js"></script>
+  <script type="module" src="../oe-resource-link.js"></script>
 </head>
 
 <body>
@@ -41,15 +42,11 @@
     </template>
   </test-fixture>
 
-  <script>
-    HTMLImports.whenReady(function () {
-      if (window.OEUtils && window.OEUtils.geturl) {
-        OEUtils.geturl = function (url) {
-          return url;
-        }
-      }
-    });
-    suite('<oe-resource-page>', function () {
+  <script type="module">
+    import '@polymer/iron-test-helpers/test-helpers.js';
+    import '@polymer/iron-test-helpers/mock-interactions.js';
+    
+    suite('<oe-resource-link>', function () {
       var server;
       var responseHeaders = {
         css: {

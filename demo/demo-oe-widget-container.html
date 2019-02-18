@@ -1,5 +1,5 @@
 <!-- 
-  ©2016-2017 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
+  ©2018-2019 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
   Bangalore, India. All Rights Reserved.
 -->
 
@@ -10,152 +10,190 @@
   <title>oe-widget-container demo</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-  <link rel="import" href="../oe-widget-container.html">
-  <link rel="import" href="widgets/chat-bot.html">
-  <link rel="import" href="widgets/oe-carousel.html">
-  <link rel="import" href="../../paper-card/paper-card.html">
-  <link rel="import" href="../../oe-data-table/oe-data-table.html">
-  <style is="custom-style" include="demo-pages-shared-styles"></style>
-</head>
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script type="module" src="../oe-widget-container.js"></script>
 
+  <script type="module">
+    import "@polymer/iron-demo-helpers/demo-pages-shared-styles.js";
+    import "@polymer/iron-demo-helpers/demo-snippet.js";
+    import "@polymer/paper-card/paper-card.js";
+    import "@polymer/polymer/lib/elements/custom-style";
+  </script>
+
+  <custom-style>
+    <style include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+</head>
+ 
 <body>
-  <h3>Widget Config Demo</h3>
+
+  <h3>Basic Fixed Widgets</h3>
   <demo-snippet>
     <template>
-      <oe-widget-container id="configWidget">
-        <oe-carousel show-arrows show-dots data-sizex=3 data-sizey=1 data-row=1 data-col=1>
+      <oe-widget-container resize="none">
+        <paper-card class="widget-element draggable" data-row=1 data-col=1 data-sizex=1 data-sizey=1 name="card1" heading="Card 1">
           <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
-          </div>
-          <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
-          </div>
-        </oe-carousel>
-        <chat-bot initial-message="Hello, I am your Travel Bot. Please tell me your travel plan." url="http://10.73.96.96:8083/message"
-          title="Travel Bot" name="chatbot"></chat-bot>
-        <oe-data-table id="simple-table" label="Simple Table" name="datatable"></oe-data-table>
-        <paper-card name="card1" heading="Card 1" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-          <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+            row 1 x col 1
           </div>
           <div class="card-actions">
             <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
           </div>
         </paper-card>
-        <paper-card name="card2" heading="Card 2" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+        <paper-card class="widget-element draggable" data-row=1 data-col=2 data-sizex=2 data-sizey=1 name="card2" heading="Card 2">
           <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+            row 1 x col 2
           </div>
           <div class="card-actions">
             <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
           </div>
         </paper-card>
-        <paper-card name="card3" heading="Card 3" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+        <paper-card class="widget-element draggable" data-row=2 data-col=1 data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
           <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+            row 2 x col 1
           </div>
           <div class="card-actions">
             <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
           </div>
         </paper-card>
-        <paper-card data-sizex=2 data-sizey=2 name="card4" heading="Card 4" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+        <paper-card class="widget-element draggable" data-row=2 data-col=3 data-sizex=1 data-sizey=1 name="card4" heading="Card 4">
           <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+            row 2 x col 4
           </div>
           <div class="card-actions">
             <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
+          </div>
+        </paper-card>
+
+      </oe-widget-container>
+    </template>
+  </demo-snippet>
+
+  <h3>Resizable</h3>
+  <demo-snippet>
+    <template>
+      <oe-widget-container resize="all">
+        <paper-card class="widget-element draggable" data-row=1 data-col=1 data-sizex=1 data-sizey=1 name="card1" heading="Card 1">
+          <div class="card-content">
+            row 1 x col 1
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-row=1 data-col=2 data-sizex=2 data-sizey=1 name="card2" heading="Card 2">
+          <div class="card-content">
+            row 1 x col 2
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-row=2 data-col=1 data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
+          <div class="card-content">
+            row 2 x col 1
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-row=2 data-col=3 data-sizex=1 data-sizey=1 name="card4" heading="Card 4">
+          <div class="card-content">
+            row 2 x col 4
           </div>
         </paper-card>
       </oe-widget-container>
-      <script>
-        var dataTable = document.getElementById('simple-table');
+    </template>
+  </demo-snippet>
 
-        dataTable.set('columns', [{
-          key: 'id',
-          label: 'Id',
-          type: 'number'
-        }, {
-          key: 'name',
-          label: 'Name',
-          type: 'string'
-        }]);
+  <h3>Dragging enabled</h3>
+  <demo-snippet>
+    <template>
+      <oe-widget-container enable-dragging>
+        <paper-card class="widget-element draggable" data-row=1 data-col=1 data-sizex=1 data-sizey=1 name="card1" heading="Card 1">
+          <div class="card-content">
+            row 1 x col 1
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-row=1 data-col=2 data-sizex=2 data-sizey=1 name="card2" heading="Card 2">
+          <div class="card-content">
+            row 1 x col 2
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-row=2 data-col=1 data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
+          <div class="card-content">
+            row 2 x col 1
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-row=2 data-col=3 data-sizex=1 data-sizey=1 name="card4" heading="Card 4">
+          <div class="card-content">
+            row 2 x col 4
+          </div>
+        </paper-card>
+      </oe-widget-container>
+    </template>
+  </demo-snippet>
 
-        dataTable.set('items', [{
-          id: 1,
-          name: 'Admin'
-        }, {
-          id: 2,
-          name: 'Developer'
-        }, {
-          id: 3,
-          name: 'Designer'
-        }, {
-          id: 4,
-          name: 'Tester'
-        }]);
+  <h3>Selective Resizing</h3>
+  <demo-snippet>
+    <template>
+      <oe-widget-container resize="explicit">
+        <paper-card class="widget-element draggable" data-enable-resize data-row=1 data-col=1 data-sizex=1 data-sizey=1 name="card1" heading="Card 1">
+          <div class="card-content">
+            row 1 x col 1 (Can Resize this one...)
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-row=1 data-col=2 data-sizex=2 data-sizey=1 name="card2" heading="Card 2">
+          <div class="card-content">
+            row 1 x col 2
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-row=2 data-col=1 data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
+          <div class="card-content">
+            row 2 x col 1
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-enable-resize data-row=2 data-col=3 data-sizex=1 data-sizey=1 name="card4" heading="Card 4">
+          <div class="card-content">
+            row 2 x col 3 (...and this one)
+          </div>
+        </paper-card>
+      </oe-widget-container>
+    </template>
+  </demo-snippet>
 
-        /*document.querySelector("#configWidget").set("widgetConfig", {
-            "widgetMargin": 8,
-            "columns": 4,
-            "widgets": [{
-                "name": "chatbot",
-                "hidden": false,
-                "width":1,
-                "height":2,
-                "row":1,
-                "col":3
-            }, {
-                "name": "datatable",
-                "hidden": false,
-                "width":2,
-                "height":2,
-                "row":1,
-                "col":1
-            }, {
-                "name": "card1",
-                "hidden": false,
-                "width":1,
-                "height":1,
-                "row":1,
-                "col":4
-            }, {
-                "name": "card2",
-                "hidden": false,
-                "width":1,
-                "height":1,
-                "row":2,
-                "col":1
-            }, {
-                "name": "card4",
-                "hidden": false,
-                "width":1,
-                "height":1,
-                "row":2,
-                "col":2
-            }, {
-                "name": "card3",
-                "hidden": false,
-                "width":1,
-                "height":1,
-                "row":2,
-                "col":4
-            }]
-        });*/
 
-      </script>
+
+  <h3>Auto Rearrange Rows and Columns</h3>
+  <demo-snippet>
+    <template>
+      <oe-widget-container auto-arrange enable-dragging config='{"columns":4,"media":[{"query":"(max-width: 600px)","config":{"columns":2}},{"query":"(max-width: 400px)","config":{"columns":1}}]}'>
+
+        <paper-card class="widget-element draggable" data-sizex=1 data-sizey=2 name="card1" heading="Card 1">
+          <div class="card-content">
+            row 1 x col 1
+          </div>
+          <div class="card-actions">
+            <paper-button>Share</paper-button>
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-sizex=3 data-sizey=1 name="card2" heading="Card 2">
+          <div class="card-content">
+            row 1 x col 2
+          </div>
+          <div class="card-actions">
+            <paper-button>Share</paper-button>
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
+          <div class="card-content">
+            row 2 x col 1
+          </div>
+          <div class="card-actions">
+            <paper-button>Share</paper-button>
+          </div>
+        </paper-card>
+        <paper-card class="widget-element draggable" data-sizex=1 data-sizey=2 name="card4" heading="Card 4">
+          <div class="card-content">
+            row 2 x col 4
+          </div>
+          <div class="card-actions">
+            <paper-button>Share</paper-button>
+          </div>
+        </paper-card>
+
+      </oe-widget-container>
     </template>
   </demo-snippet>
 </body>

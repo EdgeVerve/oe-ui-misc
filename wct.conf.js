@@ -31,6 +31,8 @@ module.exports = {
         '/bower_components/**/*.js',
         '/coverage/**/*.html',
         '/coverage/**/*.js',
+        '/demo/**/*.js',
+        '/demo/widgets/*.js',
         '/node_modules/**/*.html',
         '/node_modules/**/*.js',
         '/test/**/*.html',
@@ -44,4 +46,4 @@ module.exports = {
       }
     }
   }
-}
+};
