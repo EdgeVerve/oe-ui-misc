@@ -1,5 +1,5 @@
 <!-- 
-  ©2016-2017 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
+  ©2018-2019 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
   Bangalore, India. All Rights Reserved.
 -->
 
@@ -13,42 +13,44 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  
+  <script src="../node_modules/@webcomponents/custom-elements/src/custom-elements.js"></script>
+  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
 
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-
-  <script src="../../web-component-tester/browser.js"></script>
-  <script src="../../iron-test-helpers/test-helpers.js"></script>
-  <script src="../../iron-test-helpers/mock-interactions.js"></script>
-  <script src="../../fakerest/dist/FakeRest.min.js"></script>
-
-  <link rel="import" href="../oe-markdown-link.html">
+  <script src="../node_modules/fakerest/dist/FakeRest.min.js"></script>
+  <script src="../node_modules/sinon/pkg/sinon.js"></script>
+  <script type="module" src="../oe-markdown-link.js"></script>
 </head>
 
 <body>
 
-    <template id="README">
+  <template id="README">
 Read Me
-------------- 
-        
-loads a mark-down file and displays as content. 
-Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/marked-element) for rendering. 
-A wrapper is required since [marked-element](https://elements.polymer-project.org/elements/marked-element) does not allow specifying a url. 
-        
-``` html
-    <oe-markdown-link markdown={{md}} markdown-url={{mdurl}}>
-    </oe-markdown-link>
-``` 
-> **Properties:** 
+-------------
 
-> - **markdown** markdown to render. 
-> - **maskdownUrl** url to load the markdown data from. 
+loads a mark-down file and displays as content.
+Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/marked-element) for rendering.
+A wrapper is required since [marked-element](https://elements.polymer-project.org/elements/marked-element) does not
+allow specifying a url.
+
+``` html
+<oe-markdown-link markdown={{md}} markdown-url={{mdurl}}>
+</oe-markdown-link>
+```
+> **Properties:**
+
+> - **markdown** markdown to render.
+> - **maskdownUrl** url to load the markdown data from.
 [Details](DETAILS.md)
-    </template>
+  </template>
 
 
   <template id="DETAILS">
-Details about element 
-------------- 
+Details about element
+-------------
 This section contains details about the element. [Back](README.md)
   </template>
 
@@ -64,14 +66,10 @@ This section contains details about the element. [Back](README.md)
     </template>
   </test-fixture>
 
-  <script>
-    HTMLImports.whenReady(function () {
-      if (window.OEUtils && window.OEUtils.geturl) {
-        window.OEUtils.geturl = function (url) {
-          return url;
-        }
-      }
-    });
+  <script type="module">
+    import '@polymer/iron-test-helpers/test-helpers.js';
+    import '@polymer/iron-test-helpers/mock-interactions.js';
+   
     suite('<oe-markdown-link>', function () {
       var server;
 
@@ -107,34 +105,35 @@ This section contains details about the element. [Back](README.md)
       test('element should render provided markdown', function (done) {
 
         var element = fixture('simple');
-
+        flush(function(){
         expect(element.$._markdown.querySelectorAll('a')).to.be.empty;
-
+        
         element.addEventListener('oe-marked-render-complete', function (evt) { //eslint-disable-line no-unused-vars
           expect(element.$._markdown.querySelectorAll('a')).to.not.be.empty;
+          
+          flush(function(){
           var detailsLink = element.$._markdown.querySelectorAll('a[href="DETAILS.md"]');
           expect(detailsLink).to.exist;
-
           done();
+          });
         });
-
         var mdTemplate = document.querySelector('template#README');
         element.set('markdown', mdTemplate.innerHTML);
+        
+      });
       });
 
       test('element should load and render from markdownUrl', function (done) {
-
         var element = fixture('simple');
         expect(element.$._markdown.querySelectorAll('a')).to.be.empty;
-
+        flush(function(){
         element.addEventListener('oe-marked-render-complete', function (evt) { //eslint-disable-line no-unused-vars
           expect(element.$._markdown.querySelectorAll('a')).to.not.be.empty;
           var detailsLink = element.$._markdown.querySelectorAll('a[href="DETAILS.md"]');
           expect(detailsLink).to.exist;
-
           done();
         });
-
+      });
         element.set('markdownUrl', '_x/markdown/README.md');
       });
 
@@ -143,7 +142,10 @@ This section contains details about the element. [Back](README.md)
         var element = fixture('load-from-url');
         var round = 0;
         var detailsLink;
+        element.set('markdownUrl','_x/markdown/README.md')
+        flush(function(){
         element.addEventListener('oe-marked-render-complete', function (evt) { //eslint-disable-line no-unused-vars
+          
           if (round == 0) {
             //markdown rendered initially
             expect(element.markdownUrl).to.equal('_x/markdown/README.md');
@@ -166,14 +168,12 @@ This section contains details about the element. [Back](README.md)
             done();
           }
         });
-
+      });
       });
 
     });
-
   </script>
-
-
+ 
 </body>
 
 </html>

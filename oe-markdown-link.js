@@ -1,75 +1,74 @@
-<!-- 
-  ©2016-2017 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
-  Bangalore, India. All Rights Reserved.
--->
-
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../oe-ajax/oe-ajax.html">
-
-<link rel="import" href="../marked-element/marked-element.html">
-
-
-<link rel="stylesheet" href="styles/github.min.css">
-<link rel="stylesheet" href="styles/github-gist.css">
+/**
+ * @license
+ * ©2018-2019 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
+ * Bangalore, India. All Rights Reserved.
+ */
+import { html, PolymerElement } from "@polymer/polymer/polymer-element.js";
+import "oe-ajax/oe-ajax.js";
+import "@polymer/marked-element/marked-element.js";
+import { OECommonMixin } from "oe-mixins/oe-common-mixin.js";
 
 
-<!--
-`oe-markdown-link` loads a mark-down file and displays as content. 
-Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/marked-element) for rendering. A wrapper is required since  [marked-element](https://elements.polymer-project.org/elements/marked-element) does not allow specifying a url.
-
-@demo demo/demo-oe-markdown-link.html
--->
-<dom-module id="oe-markdown-link">
-  <template>
-
+/**
+ * `oe-markdown-link` loads a mark-down file and displays as content. 
+ * Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/marked-element) for rendering. A wrapper is required since  [marked-element](https://elements.polymer-project.org/elements/marked-element) does not allow specifying a url.
+ *
+ * @customElement
+ * @polymer
+ * @appliesMixin OECommonMixin
+ * @demo demo/demo-oe-markdown-link.html
+ * 
+ */
+class OeMarkDownLink extends OECommonMixin(PolymerElement) {
+  static get is() {
+    return 'oe-markdown-link';
+  }
+  static get template() {
+    return html`
     <style>
-      .markdown-html {
-        -ms-text-size-adjust: 100%;
-        -webkit-text-size-adjust: 100%;
-        color: var(--primary-text-color);
-        font-size: 18px;
-        line-height: 1.2;
-        word-wrap: break-word;
-        font-weight: 400;
-      }
+    .markdown-html {
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+      color: var(--primary-text-color);
+      font-size: 18px;
+      line-height: 1.2;
+      word-wrap: break-word;
+      font-weight: 400;
+    }
+    .markdown-html table {
+      font-weight: 400;
+    }
+    .markdown-html a {
+      background: transparent;
+    }
 
-      .markdown-html table {
-        font-weight: 400;
-      }
+    .markdown-html a:active,
+    .markdown-html a:hover {
+      outline: 0;
+    }
+    .markdown-html strong {
+      font-weight: bold;
+    }
 
-      .markdown-html a {
-        background: transparent;
-      }
+    .markdown-html h1 {
+      font-size: 2em;
+      margin: 0.67em 0;
+    }
 
-      .markdown-html a:active,
-      .markdown-html a:hover {
-        outline: 0;
-      }
+    .markdown-html img {
+      border: 0;
+    }
 
-      .markdown-html strong {
-        font-weight: bold;
-      }
+    .markdown-html hr {
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+      height: 0;
+    }
 
-      .markdown-html h1 {
-        font-size: 2em;
-        margin: 0.67em 0;
-      }
-
-      .markdown-html img {
-        border: 0;
-      }
-
-      .markdown-html hr {
-        -moz-box-sizing: content-box;
-        box-sizing: content-box;
-        height: 0;
-      }
-
-      .markdown-html pre {
-        overflow: auto;
-      }
-
-      .markdown-html code,
+    .markdown-html pre {
+      overflow: auto;
+    }
+    .markdown-html code,
       .markdown-html kbd,
       .markdown-html pre {
         font-size: 1em;
@@ -94,7 +93,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         box-sizing: border-box;
         padding: 0;
       }
-
       .markdown-html table {
         border-collapse: collapse;
         border-spacing: 0;
@@ -134,18 +132,15 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         border: 0;
         border-bottom: 1px solid #ddd;
       }
-
       .markdown-html hr::before {
         display: table;
         content: "";
       }
-
       .markdown-html hr::after {
         display: table;
         clear: both;
         content: "";
       }
-
       .markdown-html h1,
       .markdown-html h2,
       .markdown-html h3,
@@ -157,7 +152,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         line-height: 1.1;
         font-weight: normal;
       }
-
       .markdown-html h1 {
         font-size: 30px;
       }
@@ -181,7 +175,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
       .markdown-html h6 {
         font-size: 11px;
       }
-
       .markdown-html blockquote {
         margin: 0;
       }
@@ -208,7 +201,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
       .markdown-html dd {
         margin-left: 0;
       }
-
       .markdown-html code {
         font: 12px Consolas, "Liberation Mono", Menlo, Courier, "SansPro-Regular";
       }
@@ -231,11 +223,9 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         -ms-user-select: none;
         user-select: none;
       }
-
       .markdown-html .octicon-link::before {
         content: '\f05c';
       }
-
       .markdown-html > *:first-child {
         margin-top: 0 !important;
       }
@@ -254,7 +244,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         padding-left: 30px;
         margin-left: -30px;
       }
-
       .markdown-html .anchor:focus {
         outline: none;
       }
@@ -282,7 +271,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         color: #000;
         vertical-align: middle;
       }
-
       .markdown-html h1:hover .anchor,
       .markdown-html h2:hover .anchor,
       .markdown-html h3:hover .anchor,
@@ -303,7 +291,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
       .markdown-html h6:hover .anchor .octicon-link {
         display: inline-block;
       }
-
       .markdown-html h1 {
         padding-bottom: 0.3em;
         font-size: 2.25em;
@@ -322,7 +309,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         font-size: 1.5em;
         line-height: 1.43;
       }
-
       .markdown-html h4 {
         font-size: 1.25em;
       }
@@ -346,7 +332,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         margin-top: 0;
         margin-bottom: 16px;
       }
-
       .markdown-html hr {
         height: 4px;
         padding: 0;
@@ -367,7 +352,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         margin-top: 0;
         margin-bottom: 0;
       }
-
       .markdown-html li > p {
         margin-top: 16px;
       }
@@ -388,7 +372,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         padding: 0 16px;
         margin-bottom: 16px;
       }
-
       .markdown-html blockquote {
         padding: 0 15px;
         color: #777;
@@ -410,7 +393,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         word-break: normal;
         word-break: keep-all;
       }
-
       .markdown-html table th {
         font-weight: bold;
       }
@@ -429,7 +411,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
       .markdown-html table tr:nth-child(2n) {
         background-color: #f8f8f8;
       }
-
       .markdown-html img {
         max-width: 100%;
         -moz-box-sizing: border-box;
@@ -449,9 +430,8 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
       .markdown-html code::before,
       .markdown-html code::after {
         letter-spacing: -0.2em;
-        content: "\00a0";
+        content: "";
       }
-
       .markdown-html pre > code {
         padding: 0;
         margin: 0;
@@ -475,7 +455,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         background-color: #f7f7f7;
         border-radius: 3px;
       }
-
       .markdown-html .highlight pre {
         margin-bottom: 0;
         word-break: normal;
@@ -496,12 +475,10 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         background-color: transparent;
         border: 0;
       }
-
       .markdown-html pre code::before,
       .markdown-html pre code::after {
         content: normal;
       }
-
       .markdown-html .pl-c {
         color: #969896;
       }
@@ -522,7 +499,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
       .markdown-html .pl-en {
         color: #795da3;
       }
-
       .markdown-html .pl-s1 .pl-s2,
       .markdown-html .pl-smi,
       .markdown-html .pl-smp,
@@ -553,7 +529,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
       .markdown-html .pl-v {
         color: #df5000;
       }
-
       .markdown-html .pl-id {
         color: #b52a1d;
       }
@@ -578,7 +553,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         color: #1d3e81;
         font-weight: bold;
       }
-
       .markdown-html .pl-mq {
         color: #008080;
       }
@@ -604,7 +578,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         background-color: #eaffea;
         color: #55a532;
       }
-
       .markdown-html .pl-mdr {
         color: #795da3;
         font-weight: bold;
@@ -627,7 +600,6 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         border: 1px solid #cfcfcf;
         border-radius: 2px;
       }
-
       .markdown-html .task-list-item {
         list-style-type: none;
       }
@@ -644,25 +616,19 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
 
     </style>
 
+  <oe-ajax auto verbose url=[[markdownUrl]] last-response={{markdown}} handle-as="text" content-type="text/html"></oe-ajax>
 
-    <oe-ajax auto verbose url=[[markdownUrl]] last-response={{markdown}} handle-as="text" content-type="text/html"></oe-ajax>
-
-    <marked-element id="_markdown" markdown={{markdown}}>
-      <div class="markdown-html"></div>
-      <content></content>
-    </marked-element>
-
-  </template>
-</dom-module>
-
-<script>
-  Polymer({
-    is: 'oe-markdown-link',
-    properties: {
-
-      /**
-       * markdown to render
-       */
+  <marked-element id="_markdown" markdown={{markdown}}>
+    <div class="markdown-html" slot="markdown-html"></div>
+    <slot></slot>
+  </marked-element>
+    `;
+  }
+  static get properties() {
+    return {
+       /**
+        * markdown to render
+        */
       markdown: {
         type: String
       },
@@ -674,42 +640,56 @@ Uses Polymer's [marked-element](https://elements.polymer-project.org/elements/ma
         type: String,
         notify: true
       }
-    },
-    listeners: {
-      'marked-render-complete': '_renderPostProcess'
-    },
-    _renderPostProcess: function () {
-      var self = this;
-      var allAnchors = this.querySelectorAll('a');
-      var regex = new RegExp('(?:^[a-z][a-z0-9+.-]*:|\/\/)');
+    }; 
+  }
+  /**
+   * Render post process
+   */
+  /*global someFunction _renderPostProcess:true*/
+  /*eslint no-undef: "error"*/
+  _renderPostProcess() {
+   
+    var self = this;
+    var allAnchors = this.shadowRoot.querySelectorAll('a');
+    var regex = new RegExp('(?:^[a-z][a-z0-9+.-]*:|\/\/)');
 
-      for (var i = 0, l = allAnchors.length; i < l; i++) {
-        var anchor = allAnchors[i];
-        var href = anchor.getAttribute('href');
-        var isAbsolute = regex.test(href);
-        var isMD = href.endsWith('.md') || href.endsWith('.MD');
+    for (var i = 0, l = allAnchors.length; i < l; i++) {
+      var anchor = allAnchors[i];
+      var href = anchor.getAttribute('href');
+      var isAbsolute = regex.test(href);
+      var isMD = href.endsWith('.md') || href.endsWith('.MD');
 
-        //relative .MD path specified in href
-        if (!isAbsolute && isMD) {
-          anchor.addEventListener('click', function (e) {
-            var markdownUrl = self.markdownUrl || '';
-            var parts = markdownUrl.split('/');
-            //remove current markdown file name.
-            parts.pop();
+      //relative .MD path specified in href
+      if (!isAbsolute && isMD) {
+        anchor.addEventListener('click', function (e) {
+          var markdownUrl = self.markdownUrl || '';
+          var parts = markdownUrl.split('/');
+          //remove current markdown file name.
+          parts.pop();
 
-            markdownUrl = parts.join('/');
-            if (markdownUrl[markdownUrl.length - 1] === '/' || e.target.getAttribute('href')[0] === '/') {
-              markdownUrl += e.target.getAttribute('href');
-            } else {
-              markdownUrl = markdownUrl + '/' + e.target.getAttribute('href');
-            }
-            self.set('markdownUrl', markdownUrl);
-            e.preventDefault();
-          });
-        }
+          markdownUrl = parts.join('/');
+          if (markdownUrl[markdownUrl.length - 1] === '/' || e.target.getAttribute('href')[0] === '/') {
+            markdownUrl += e.target.getAttribute('href');
+          } else {
+            markdownUrl = markdownUrl + '/' + e.target.getAttribute('href');
+          }
+          self.set('markdownUrl', markdownUrl);
+          e.preventDefault();
+        });
       }
-      self.fire('oe-marked-render-complete');
     }
-  });
+    
+    self.fire('oe-marked-render-complete');
+  }
+   /**
+    * Connected callback to handle templating if custom template is present.
+    */
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener('marked-render-complete', this._renderPostProcess.bind(this));
+  }
+  
+  
+}
 
-</script>
+window.customElements.define(OeMarkDownLink.is, OeMarkDownLink);
