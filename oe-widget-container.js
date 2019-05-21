@@ -8,7 +8,6 @@ import { html, PolymerElement } from "@polymer/polymer/polymer-element.js";
 import { IronResizableBehavior } from "@polymer/iron-resizable-behavior/iron-resizable-behavior.js";
 import { mixinBehaviors } from "@polymer/polymer/lib/legacy/class.js";
 import { OECommonMixin } from "oe-mixins/oe-common-mixin.js";
-import { FlattenedNodesObserver } from "@polymer/polymer/lib/utils/flattened-nodes-observer.js";
 
 import "@polymer/iron-flex-layout/iron-flex-layout-classes.js";
 import "@polymer/paper-menu-button/paper-menu-button.js";
@@ -19,11 +18,10 @@ import "@polymer/paper-item/paper-item.js";
 import "@polymer/iron-media-query/iron-media-query.js";
 import "jquery/dist/jquery.js";
 import Draggable from "./draggable.js";
-import "jquery.gridster/dist/jquery.gridster.js";
 
 /**
  * `oe-widget-container`
- *  Uses Jquery.gridster to align widgets based on config.
+ *  
  * 
  * 
  * @customElement
