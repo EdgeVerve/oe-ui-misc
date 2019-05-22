@@ -32,6 +32,7 @@
       }
       paper-card {
         --paper-card-background-color: #ffc800;
+        
       }
 
       #custom {
@@ -147,10 +148,11 @@
   <h3>Auto Rearrange Rows and Columns</h3>
   <demo-snippet>
     <template>
-      <oe-widget-container auto-arrange enable-resizing enable-dragging config='{"columns":4,"media":[{"query":"(max-width: 600px)","config":{"columns":2}},{"query":"(max-width: 400px)","config":{"columns":1}}]}'>
-
-          <oe-data-table id="simple-table" label="Simple Table" name="datatable" class="widget-element" data-width=1 data-height=2></oe-data-table>
-        <paper-card class="widget-element draggable" data-width=3 data-height=1 name="card2" heading="Card 2">
+      <oe-widget-container enable-resizing enable-dragging config='{"columns":4,"media":[{"query":"(max-width: 600px)","config":{"columns":2}},{"query":"(max-width: 400px)","config":{"columns":1}}]}'>
+        <div class="widget-element" data-width=1 data-height=2 style="overflow: auto">
+          <oe-data-table id="simple-table" label="Simple Table" name="datatable" ></oe-data-table>
+        </div>
+          <paper-card class="widget-element draggable" data-width=3 data-height=1 name="card2" heading="Card 2">
           <div class="card-content">
             row 1 x col 2
           </div>

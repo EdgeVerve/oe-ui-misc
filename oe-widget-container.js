@@ -84,6 +84,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
         position:absolute;
         display:inline-block;
         box-sizing:border-box;
+        user-select:none;
       }
 
       #container ::slotted(*:hover) {
@@ -446,6 +447,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
             });
         } else {
             config._draggable = new Draggable(config.el, {
+                preventDrag: 20,
                 disableDrag: !this.enableDragging,
                 dragUnit: this._gridUnit,
                 dragStartFn: this.handleDragStart.bind(this),
@@ -453,7 +455,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
                 dragEndFn: this.handleDragEnd.bind(this)
             });
         }
-
+      
     }
     __attachResizeEvents(config) {
         var resizeHandler = config.el.querySelector('.resize-handler');
@@ -567,16 +569,16 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
         return index;
     }
     handleDrag(event, dragConfig) {
-        if(this.enableDragging && this.enableResizing){
-            var domRect = dragConfig.element.getBoundingClientRect();
-            var left = Math.abs(event.x - domRect.left);
-            var right = Math.abs(event.x - domRect.right);
-            var top = Math.abs(event.y - domRect.top);
-            var bottom = Math.abs(event.y - domRect.bottom);
-            if(!(left > 20 && right > 20 && top > 20 && bottom > 20)){
-                return;
-            }
-        }
+        // if(this.enableDragging && this.enableResizing){
+        //     var domRect = dragConfig.element.getBoundingClientRect();
+        //     var left = Math.abs(event.x - domRect.left);
+        //     var right = Math.abs(event.x - domRect.right);
+        //     var top = Math.abs(event.y - domRect.top);
+        //     var bottom = Math.abs(event.y - domRect.bottom);
+        //     if(!(left > 20 && right > 20 && top > 20 && bottom > 20)){
+        //         return;
+        //     }
+        // }
         if(this._dragConfig){
             var newRow = this._dragConfig.row + dragConfig.deltaYUnit;
             newRow = (newRow < 0) ? 0 : newRow;
@@ -672,7 +674,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
             this.widgetConfigs.forEach(function (config) {
                 var enableDrag = this.enableDragging && !config.disableDragging;
                 if (enableDrag !== config._draggable.enableDrag) {
-                    config._draggable.toggleDrag(enableDrag,this.enableResizing);
+                    config._draggable.toggleDrag(enableDrag);
                 }
             }.bind(this));
         }
@@ -702,16 +704,16 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
 
     handleDragStart(event, dragConfig) {
         
-        if(this.enableDragging && this.enableResizing){
-            var domRect = dragConfig.element.getBoundingClientRect();
-            var left = Math.abs(event.x - domRect.left);
-            var right = Math.abs(event.x - domRect.right);
-            var top = Math.abs(event.y - domRect.top);
-            var bottom = Math.abs(event.y - domRect.bottom);
-            if(!(left > 20 && right > 20 && top > 20 && bottom > 20)){
-                return;
-            }
-        }
+        // if(this.enableDragging && this.enableResizing){
+        //     var domRect = dragConfig.element.getBoundingClientRect();
+        //     var left = Math.abs(event.x - domRect.left);
+        //     var right = Math.abs(event.x - domRect.right);
+        //     var top = Math.abs(event.y - domRect.top);
+        //     var bottom = Math.abs(event.y - domRect.bottom);
+        //     if(!(left > 20 && right > 20 && top > 20 && bottom > 20)){
+        //         return;
+        //     }
+        // }
         this.classList.add('is-dragging');
         this.isRendering = true;
 
