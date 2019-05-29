@@ -148,7 +148,7 @@
   <h3>Auto Rearrange Rows and Columns</h3>
   <demo-snippet>
     <template>
-      <oe-widget-container enable-resizing enable-dragging config='{"columns":4,"media":[{"query":"(max-width: 600px)","config":{"columns":2}},{"query":"(max-width: 400px)","config":{"columns":1}}]}'>
+      <oe-widget-container enable-resizing auto-arrange enable-dragging config='{"columns":4,"media":[{"query":"(max-width: 600px)","config":{"columns":2}},{"query":"(max-width: 400px)","config":{"columns":1}}]}'>
         <div class="widget-element" data-width=1 data-height=2 style="overflow: auto">
           <oe-data-table id="simple-table" label="Simple Table" name="datatable" ></oe-data-table>
         </div>
