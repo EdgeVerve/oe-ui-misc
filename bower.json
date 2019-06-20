@@ -25,7 +25,8 @@
     "oe-i18n-msg": "^1.0.0",
     "moment": "^2.18.1",
     "oe-ajax": "^1.1.0",
-    "iron-media-query": "1.0.8"
+    "iron-media-query": "1.0.8",
+    "marked-element":"^1.1.1"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
