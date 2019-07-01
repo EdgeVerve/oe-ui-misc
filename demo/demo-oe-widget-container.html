@@ -18,21 +18,41 @@
     import "@polymer/iron-demo-helpers/demo-snippet.js";
     import "@polymer/paper-card/paper-card.js";
     import "@polymer/polymer/lib/elements/custom-style";
+     import '@polymer/polymer/lib/elements/dom-bind.js';
+     import 'oe-data-table/oe-data-table.js';
   </script>
 
-  <custom-style>
-    <style include="demo-pages-shared-styles">
+<custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .vertical-section-container {
+        max-width: 600px;
+      }
+      paper-card:hover {
+      @apply --shadow-elevation-16dp;
+      }
+      paper-card {
+        --paper-card-background-color: #ffc800;
+        
+      }
+
+      #custom {
+        --custom-variable-1: lightgreen;
+
+        --custom-mixin-1:{
+          padding: 8px;
+          border: 2px dashed red;
+        };
+      }
     </style>
   </custom-style>
-</head>
  
 <body>
 
   <h3>Basic Fixed Widgets</h3>
   <demo-snippet>
     <template>
-      <oe-widget-container resize="none">
-        <paper-card class="widget-element draggable" data-row=1 data-col=1 data-sizex=1 data-sizey=1 name="card1" heading="Card 1">
+      <oe-widget-container auto-arrange>
+        <paper-card class="widget-element draggable" data-row=0 data-col=1 data-width=1 data-height=1 name="card1" heading="Card 1">
           <div class="card-content">
             row 1 x col 1
           </div>
@@ -40,7 +60,7 @@
             <paper-button>Share</paper-button>
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-row=1 data-col=2 data-sizex=2 data-sizey=1 name="card2" heading="Card 2">
+        <paper-card class="widget-element draggable" data-row=1 data-col=2 data-width=2 data-height=1 name="card2" heading="Card 2">
           <div class="card-content">
             row 1 x col 2
           </div>
@@ -48,7 +68,7 @@
             <paper-button>Share</paper-button>
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-row=2 data-col=1 data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
+        <paper-card class="widget-element draggable" data-row=2 data-col=1 data-width=2 data-height=1 name="card3" heading="Card 3">
           <div class="card-content">
             row 2 x col 1
           </div>
@@ -56,7 +76,7 @@
             <paper-button>Share</paper-button>
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-row=2 data-col=3 data-sizex=1 data-sizey=1 name="card4" heading="Card 4">
+        <paper-card class="widget-element draggable" data-row=0 data-col=3 data-width=1 data-height=1 name="card4" heading="Card 4">
           <div class="card-content">
             row 2 x col 4
           </div>
@@ -72,23 +92,23 @@
   <h3>Resizable</h3>
   <demo-snippet>
     <template>
-      <oe-widget-container resize="all">
-        <paper-card class="widget-element draggable" data-row=1 data-col=1 data-sizex=1 data-sizey=1 name="card1" heading="Card 1">
+      <oe-widget-container enable-resizing>
+        <paper-card class="widget-element draggable" data-row=0 data-col=1 data-width=1 data-height=1 name="card1" heading="Card 1">
           <div class="card-content">
             row 1 x col 1
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-row=1 data-col=2 data-sizex=2 data-sizey=1 name="card2" heading="Card 2">
+        <paper-card class="widget-element draggable" data-row=0 data-col=2 data-width=2 data-height=1 name="card2" heading="Card 2">
           <div class="card-content">
             row 1 x col 2
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-row=2 data-col=1 data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
+        <paper-card class="widget-element draggable" data-row=1 data-col=1 data-width=2 data-height=1 name="card3" heading="Card 3">
           <div class="card-content">
             row 2 x col 1
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-row=2 data-col=3 data-sizex=1 data-sizey=1 name="card4" heading="Card 4">
+        <paper-card class="widget-element draggable" data-row=2 data-col=3 data-width=1 data-height=1 name="card4" heading="Card 4">
           <div class="card-content">
             row 2 x col 4
           </div>
@@ -101,22 +121,22 @@
   <demo-snippet>
     <template>
       <oe-widget-container enable-dragging>
-        <paper-card class="widget-element draggable" data-row=1 data-col=1 data-sizex=1 data-sizey=1 name="card1" heading="Card 1">
+        <paper-card class="widget-element draggable" data-row=1 data-col=1 data-width=1 data-height=1 name="card1" heading="Card 1">
           <div class="card-content">
             row 1 x col 1
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-row=1 data-col=2 data-sizex=2 data-sizey=1 name="card2" heading="Card 2">
+        <paper-card class="widget-element draggable" data-row=0 data-col=2 data-width=2 data-height=1 name="card2" heading="Card 2">
           <div class="card-content">
             row 1 x col 2
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-row=2 data-col=1 data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
+        <paper-card class="widget-element draggable" data-row=0 data-col=1 data-width=2 data-height=1 name="card3" heading="Card 3">
           <div class="card-content">
             row 2 x col 1
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-row=2 data-col=3 data-sizex=1 data-sizey=1 name="card4" heading="Card 4">
+        <paper-card class="widget-element draggable" data-row=2 data-col=3 data-width=1 data-height=1 name="card4" heading="Card 4">
           <div class="card-content">
             row 2 x col 4
           </div>
@@ -124,51 +144,15 @@
       </oe-widget-container>
     </template>
   </demo-snippet>
-
-  <h3>Selective Resizing</h3>
-  <demo-snippet>
-    <template>
-      <oe-widget-container resize="explicit">
-        <paper-card class="widget-element draggable" data-enable-resize data-row=1 data-col=1 data-sizex=1 data-sizey=1 name="card1" heading="Card 1">
-          <div class="card-content">
-            row 1 x col 1 (Can Resize this one...)
-          </div>
-        </paper-card>
-        <paper-card class="widget-element draggable" data-row=1 data-col=2 data-sizex=2 data-sizey=1 name="card2" heading="Card 2">
-          <div class="card-content">
-            row 1 x col 2
-          </div>
-        </paper-card>
-        <paper-card class="widget-element draggable" data-row=2 data-col=1 data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
-          <div class="card-content">
-            row 2 x col 1
-          </div>
-        </paper-card>
-        <paper-card class="widget-element draggable" data-enable-resize data-row=2 data-col=3 data-sizex=1 data-sizey=1 name="card4" heading="Card 4">
-          <div class="card-content">
-            row 2 x col 3 (...and this one)
-          </div>
-        </paper-card>
-      </oe-widget-container>
-    </template>
-  </demo-snippet>
-
-
 
   <h3>Auto Rearrange Rows and Columns</h3>
   <demo-snippet>
     <template>
-      <oe-widget-container auto-arrange enable-dragging config='{"columns":4,"media":[{"query":"(max-width: 600px)","config":{"columns":2}},{"query":"(max-width: 400px)","config":{"columns":1}}]}'>
-
-        <paper-card class="widget-element draggable" data-sizex=1 data-sizey=2 name="card1" heading="Card 1">
-          <div class="card-content">
-            row 1 x col 1
-          </div>
-          <div class="card-actions">
-            <paper-button>Share</paper-button>
-          </div>
-        </paper-card>
-        <paper-card class="widget-element draggable" data-sizex=3 data-sizey=1 name="card2" heading="Card 2">
+      <oe-widget-container enable-resizing auto-arrange enable-dragging config='{"columns":4,"media":[{"query":"(max-width: 600px)","config":{"columns":2}},{"query":"(max-width: 400px)","config":{"columns":1}}]}'>
+        <div class="widget-element" data-width=1 data-height=2 style="overflow: auto">
+          <oe-data-table id="simple-table" label="Simple Table" name="datatable" ></oe-data-table>
+        </div>
+          <paper-card class="widget-element draggable" data-width=3 data-height=1 name="card2" heading="Card 2">
           <div class="card-content">
             row 1 x col 2
           </div>
@@ -176,7 +160,7 @@
             <paper-button>Share</paper-button>
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-sizex=2 data-sizey=1 name="card3" heading="Card 3">
+        <paper-card class="widget-element draggable" data-width=2 data-height=1 name="card3" heading="Card 3">
           <div class="card-content">
             row 2 x col 1
           </div>
@@ -184,7 +168,7 @@
             <paper-button>Share</paper-button>
           </div>
         </paper-card>
-        <paper-card class="widget-element draggable" data-sizex=1 data-sizey=2 name="card4" heading="Card 4">
+        <paper-card class="widget-element draggable" data-width=1 data-height=2 name="card4" heading="Card 4">
           <div class="card-content">
             row 2 x col 4
           </div>
@@ -194,6 +178,35 @@
         </paper-card>
 
       </oe-widget-container>
+      <script>
+        
+          var dataTable = document.getElementById('simple-table');
+  
+          dataTable.set('columns', [{
+            key: 'id',
+            label: 'Id',
+            type: 'number'
+          }, {
+            key: 'name',
+            label: 'Name',
+            type: 'string'
+          }]);
+  
+          dataTable.set('items', [{
+            id: 1,
+            name: 'Admin'
+          }, {
+            id: 2,
+            name: 'Developer'
+          }, {
+            id: 3,
+            name: 'Designer'
+          }, {
+            id: 4,
+            name: 'Tester'
+          }]);
+    
+        </script>
     </template>
   </demo-snippet>
 </body>
