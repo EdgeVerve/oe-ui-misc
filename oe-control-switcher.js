@@ -115,7 +115,8 @@ class OeControlSwitcher extends OECommonMixin(PolymerElement) {
           },
           value: {
               type: Object,
-              notify:true
+              notify:true,
+              observer: '_valueChanged'
           }
     }
 }
@@ -128,6 +129,19 @@ _selectorToggle(){
     else{
         self.set('value',self.config.offValue);
         self.fire('control-offswitch-selected',self.config.offValue);
+        
+    }
+}
+_valueChanged() {
+    var self = this;
+    if(self.value && (self._selected === undefined)){
+        if(self.value === self.config.onValue){
+            self.set('_selected',0);
+        }
+        else
+        {
+            self.set('_selected',1);
+        }
         
     }
 }
