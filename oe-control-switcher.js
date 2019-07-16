@@ -118,7 +118,7 @@ class OeControlSwitcher extends OECommonMixin(PolymerElement) {
               notify:true,
               observer: '_valueChanged'
           }
-    }
+    };
 }
 _selectorToggle(){
     var self = this;
