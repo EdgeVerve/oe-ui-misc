@@ -1,0 +1,89 @@
+<!-- ©2015-2016 EdgeVerve Systems Limited (a fully owned Infosys subsidiary), Bangalore, India. All Rights Reserved.
+The EdgeVerve proprietary software program ("Program"), is protected by copyrights laws, international treaties and other pending or existing intellectual property rights in India, the United States and other countries.
+The Program may contain/reference third party or open source components, the rights to which continue to
+remain with the applicable third party licensors or the open source community as the case may be and nothing
+here transfers the rights to the third party and open source components, except as expressly permitted.
+Any unauthorized reproduction, storage, transmission in any form or by any means (including without limitation to electronic, mechanical, printing, photocopying, recording or  otherwise), or any distribution of this Program,or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law. -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" class="IE=edge,chrome=1">
+    <meta name="viewport" class="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <title>oe-side-nav test</title>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+
+    <script src="../node_modules/sinon/pkg/sinon.js"></script>
+    <!-- <script type="module" src="/@polymer/iron-test-helpers/mock-interactions.js"></script> -->
+    <script type="module" src="../oe-control-switcher.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <test-fixture id="BasicTestFixture">
+        <template>
+            <oe-control-switcher id="main1" config='{"onLabel": "Bangalore","onValue": "bn","offLabel": "Delhi","offValue": "dl"}'></oe-control-switcher>
+        </template>
+    </test-fixture>
+
+
+    <script type="module">
+        import '@polymer/iron-test-helpers/test-helpers.js';
+        import '@polymer/iron-test-helpers/mock-interactions.js';
+        var ele;
+
+
+        suite('oe-control-switcher', function () {
+            ele = fixture('BasicTestFixture');
+            test('Default no element will be selected', function (done) {
+                flush(function () {
+                    expect(ele.value).to.be.undefined;
+                    expect(ele._selected).to.be.undefined;
+                    done();
+                })
+            });
+
+            test('on-tap element selected and value updated with selected element', function (done) {
+                ele = fixture('BasicTestFixture');
+                ele.set('_selected', 0);
+                flush(function () {
+                    expect(ele.value).to.equal('bn');
+                    done();
+                });
+            });
+        });
+        suite('switch-event-listener', function () {
+            setup(function () {
+                ele = fixture('BasicTestFixture');
+            });
+
+            test('on-tap it fires the selected element value', function (done) {
+
+
+                ele.addEventListener('control-offswitch-selected', function (event) {
+                    expect(event.detail).to.equal('dl');
+                    done();
+
+                })
+                flush(function () {
+                    ele.set('_selected', 1);
+                });
+            })
+
+        });
+
+    </script>
+
+</body>
+
+</html>
