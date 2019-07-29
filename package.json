@@ -27,8 +27,8 @@
     "moment": "2.24.0",
     "oe-ajax": "git+http://evgit/oecloud.io/oe-ajax.git#master",
     "oe-i18n-msg": "git+http://evgit/oecloud.io/oe-i18n-msg.git#master",
-    "oe-utils": "git+http://evgit/oecloud.io/oe-utils.git#master",
-    "oe-mixins": "git+http://evgit/oecloud.io/oe-mixins.git#master"
+    "oe-mixins": "git+http://evgit/oecloud.io/oe-mixins.git#master",
+    "oe-utils": "git+http://evgit/oecloud.io/oe-utils.git#master"
   },
   "devDependencies": {
     "@polymer/iron-component-page": "^4.0.1",
@@ -36,6 +36,8 @@
     "@polymer/iron-test-helpers": "^3.0.1",
     "@polymer/paper-card": "^3.0.1",
     "@polymer/paper-fab": "^3.0.1",
+    "@polymer/paper-slider": "^3.0.1",
+    "@polymer/paper-toggle-button": "^3.0.1",
     "@polymer/paper-scroll-header-panel": "^3.0.1",
     "@webcomponents/webcomponentsjs": "^2.2.7",
     "fakerest": "2.1.0",
