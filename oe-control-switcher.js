@@ -9,6 +9,7 @@
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 import 'oe-i18n-msg/oe-i18n-msg.js';
 import { OECommonMixin } from "oe-mixins/oe-common-mixin";
+import { OEFieldMixin } from "oe-mixins/oe-field-mixin.js";
 import '@polymer/iron-selector/iron-selector.js';
 import "@polymer/iron-flex-layout/iron-flex-layout.js";
 import "@polymer/iron-flex-layout/iron-flex-layout-classes.js";
@@ -36,12 +37,13 @@ import "@polymer/iron-flex-layout/iron-flex-layout-classes.js";
  * @customElement
  * @polymer
  * @appliesMixin OECommonMixin
+ * @appliesMixin OEFieldMixin
  * @demo demo/demo-oe-control-switcher.html
  */
 
 class OeControlSwitcher extends OECommonMixin(PolymerElement) {
-  static get template() {
-    return html`
+    static get template() {
+        return html`
     <style include="iron-flex iron-flex-alignment">
     .on-value {
         padding: 8px;
@@ -90,7 +92,7 @@ class OeControlSwitcher extends OECommonMixin(PolymerElement) {
     }
     </style>
    
-    <iron-selector selected="{{_selected}}" class="layout horizontal box">
+    <iron-selector selected="{{_selected}}" required class="layout horizontal box">
     <div class="on-value pointer">
     <oe-i18n-msg msgid="[[config.onLabel]]"></oe-i18n-msg>
     </div>
@@ -99,52 +101,66 @@ class OeControlSwitcher extends OECommonMixin(PolymerElement) {
     </div>
     </iron-selector>
     `;
-  }
-  static get is(){ return 'oe-control-switcher'; }
-  static get properties() {
-    return {
-        config: {
-            type: Object,
-            notify: true,
-            value: function() { return {}; }
-          },
-          _selected: {
-              type: Number,
-              notify:true,
-              observer: '_selectorToggle'
-          },
-          value: {
-              type: Object,
-              notify:true,
-              observer: '_valueChanged'
-          }
-    };
-}
-_selectorToggle(){
-    var self = this;
-    if(!self._selected){
-        self.set('value',self.config.onValue);
-        self.fire('control-onswitch-selected',self.config.onValue);
     }
-    else{
-        self.set('value',self.config.offValue);
-        self.fire('control-offswitch-selected',self.config.offValue);
-        
+    static get is() { return 'oe-control-switcher'; }
+    static get properties() {
+        return {
+            /**
+             *  Object holding values for switches 
+             */
+            config: {
+                type: Object,
+                notify: true,
+                value: function () { return {}; }
+            },
+            /**
+             *  0 or 1 based on selected value 
+             */
+            _selected: {
+                type: Number,
+                notify: true,
+                observer: '_selectorToggle'
+            },
+            /**
+             *  value present in config object 
+             */
+            value: {
+                type: Object,
+                notify: true,
+                observer: '_valueChanged'
+            }
+        };
     }
-}
-_valueChanged() {
-    var self = this;
-    if(self.value && (self._selected === undefined)){
-        if(self.value === self.config.onValue){
-            self.set('_selected',0);
+        /**
+         * invoked when _selected value changes
+         * fires the event
+         */
+    _selectorToggle() {
+        var self = this;
+        if (!self._selected) {
+            self.set('value', self.config.onValue);
+            self.fire('control-onswitch-selected', self.config.onValue);
         }
-        else
-        {
-            self.set('_selected',1);
+        else {
+            self.set('value', self.config.offValue);
+            self.fire('control-offswitch-selected', self.config.offValue);
         }
-        
     }
-}
-}
+    /**
+     * invoked when the value is set
+     * and toggled the selected to that value
+     */
+    _valueChanged() {
+        var self = this;
+        if (self.value && (self._selected === undefined)) {
+            if (self.value === self.config.onValue) {
+                self.set('_selected', 0);
+            }
+            else if (self.value === self.config.offValue) {
+                self.set('_selected', 1);
+            }
 
-customElements.define(OeControlSwitcher.is, OeControlSwitcher);
+        }
+    }
+}
+customElements.define(OeControlSwitcher.is, OEFieldMixin(OeControlSwitcher));
