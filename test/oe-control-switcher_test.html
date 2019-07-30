@@ -52,6 +52,13 @@ Any unauthorized reproduction, storage, transmission in any form or by any means
                     done();
                 })
             });
+            test('On value set, the selected will update with respect to the set value', function (done) {
+                ele.set('value','dl')
+                flush(function () {
+                    expect(ele._selected).to.equal(1);
+                    done();
+                })
+            });
 
             test('on-tap element selected and value updated with selected element', function (done) {
                 ele = fixture('BasicTestFixture');
