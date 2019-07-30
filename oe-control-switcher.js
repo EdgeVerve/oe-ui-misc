@@ -92,7 +92,7 @@ class OeControlSwitcher extends OECommonMixin(PolymerElement) {
     }
     </style>
    
-    <iron-selector selected="{{_selected}}" required class="layout horizontal box">
+    <iron-selector selected="{{_selected}}" class="layout horizontal box">
     <div class="on-value pointer">
     <oe-i18n-msg msgid="[[config.onLabel]]"></oe-i18n-msg>
     </div>
