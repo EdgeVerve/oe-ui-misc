@@ -13,11 +13,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 118,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 124,
+              "line": 138,
               "column": 7
             }
           },
@@ -37,11 +37,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 145,
               "column": 2
             },
             "end": {
-              "line": 162,
+              "line": 177,
               "column": 3
             }
           },
@@ -57,11 +57,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 184,
               "column": 2
             },
             "end": {
-              "line": 184,
+              "line": 197,
               "column": 3
             }
           },
@@ -81,11 +81,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 189,
+              "line": 202,
               "column": 2
             },
             "end": {
-              "line": 199,
+              "line": 211,
               "column": 3
             }
           },
@@ -101,11 +101,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 204,
+              "line": 216,
               "column": 2
             },
             "end": {
-              "line": 218,
+              "line": 229,
               "column": 3
             }
           },
@@ -125,11 +125,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 235,
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 248,
               "column": 3
             }
           },
@@ -150,11 +150,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 32,
+          "line": 31,
           "column": 0
         },
         "end": {
-          "line": 239,
+          "line": 249,
           "column": 1
         }
       },
@@ -167,11 +167,11 @@
           "description": "Array of navigation objects with label and path strings",
           "sourceRange": {
             "start": {
-              "line": 118,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 124,
+              "line": 138,
               "column": 7
             }
           },
@@ -193,388 +193,6 @@
       },
       "slots": [],
       "tagname": "oe-breadcrumb"
-    },
-    {
-      "description": "`oe-document-data`",
-      "summary": "",
-      "path": "oe-document-data.js",
-      "properties": [
-        {
-          "name": "document",
-          "type": "Object | null | undefined",
-          "description": "Object which contains documentName and documentData property.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 56,
-              "column": 6
-            },
-            "end": {
-              "line": 59,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "notify": true,
-              "attributeType": "Object"
-            }
-          }
-        },
-        {
-          "name": "documentId",
-          "type": "string | null | undefined",
-          "description": "Property of type string and has a documentSet as an observer.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 63,
-              "column": 6
-            },
-            "end": {
-              "line": 66,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "observer": "UNKNOWN",
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "documentPostUrl",
-          "type": "string | null | undefined",
-          "description": "URL used in makeAjaxcall.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 70,
-              "column": 6
-            },
-            "end": {
-              "line": 72,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "relationName",
-          "type": "string | null | undefined",
-          "description": "Name of relation.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 76,
-              "column": 6
-            },
-            "end": {
-              "line": 78,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "documentParentAttribute",
-          "type": "string | null | undefined",
-          "description": "property of type string.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 82,
-              "column": 6
-            },
-            "end": {
-              "line": 84,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "parentId",
-          "type": "string | null | undefined",
-          "description": "It is parameter for documentSet method.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 88,
-              "column": 6
-            },
-            "end": {
-              "line": 90,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "documentSet",
-          "description": "eslint no-undef: \"error\"",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 95,
-              "column": 2
-            },
-            "end": {
-              "line": 136,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "parentId"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "openFile",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 137,
-              "column": 2
-            },
-            "end": {
-              "line": 140,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "getFile",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 141,
-              "column": 2
-            },
-            "end": {
-              "line": 156,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "download",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 157,
-              "column": 2
-            },
-            "end": {
-              "line": 193,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "parentId"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "showInput",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 194,
-              "column": 2
-            },
-            "end": {
-              "line": 201,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": []
-        }
-      ],
-      "staticMethods": [],
-      "demos": [],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 23,
-          "column": 0
-        },
-        "end": {
-          "line": 209,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "HTMLElement",
-      "name": "OeDocumentData",
-      "attributes": [
-        {
-          "name": "document",
-          "description": "Object which contains documentName and documentData property.",
-          "sourceRange": {
-            "start": {
-              "line": 56,
-              "column": 6
-            },
-            "end": {
-              "line": 59,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "Object | null | undefined"
-        },
-        {
-          "name": "document-id",
-          "description": "Property of type string and has a documentSet as an observer.",
-          "sourceRange": {
-            "start": {
-              "line": 63,
-              "column": 6
-            },
-            "end": {
-              "line": 66,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "document-post-url",
-          "description": "URL used in makeAjaxcall.",
-          "sourceRange": {
-            "start": {
-              "line": 70,
-              "column": 6
-            },
-            "end": {
-              "line": 72,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "relation-name",
-          "description": "Name of relation.",
-          "sourceRange": {
-            "start": {
-              "line": 76,
-              "column": 6
-            },
-            "end": {
-              "line": 78,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "document-parent-attribute",
-          "description": "property of type string.",
-          "sourceRange": {
-            "start": {
-              "line": 82,
-              "column": 6
-            },
-            "end": {
-              "line": 84,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "parent-id",
-          "description": "It is parameter for documentSet method.",
-          "sourceRange": {
-            "start": {
-              "line": 88,
-              "column": 6
-            },
-            "end": {
-              "line": 90,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        }
-      ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "document-changed",
-          "description": "Fired when the `document` property changes.",
-          "metadata": {}
-        }
-      ],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "oe-document-data",
-      "mixins": [
-        "OEAjaxMixin",
-        "OECommonMixin"
-      ]
     },
     {
       "description": "`oe-hbox`\n`oe-hbox` displays content horizontally. child elements occupy their default width and wrap around when 'oe-hbox' width is not sufficient.\n```\n<oe-hbox>\n     <paper-input label=\"First Name\"></paper-input>\n     <paper-input label=\"Last Name\"></paper-input>\n     <paper-input label=\"City\"></paper-input>\n     <paper-input label=\"Zip Code\"></paper-input>\n</oe-hbox>\n```\nfor arranging controls in two column, apply additional css class on hbox like below\n\n### Style\n```\n<style>\n      .layout-2-col > * {\n        width: calc(50.00% - 16px);\n        padding-left: 8px;\n        padding-right: 8px;\n     }\n</style>\n```\n\n```\n<oe-hbox class=\"layout-2-col\">\n     ...\n     ...\n</oe-hbox>\n```",
@@ -4421,6 +4039,388 @@
       "tagname": "oe-hbox"
     },
     {
+      "description": "`oe-document-data`",
+      "summary": "",
+      "path": "oe-document-data.js",
+      "properties": [
+        {
+          "name": "document",
+          "type": "Object | null | undefined",
+          "description": "Object which contains documentName and documentData property.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 56,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "attributeType": "Object"
+            }
+          }
+        },
+        {
+          "name": "documentId",
+          "type": "string | null | undefined",
+          "description": "Property of type string and has a documentSet as an observer.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 6
+            },
+            "end": {
+              "line": 66,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "UNKNOWN",
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "documentPostUrl",
+          "type": "string | null | undefined",
+          "description": "URL used in makeAjaxcall.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 70,
+              "column": 6
+            },
+            "end": {
+              "line": 72,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "relationName",
+          "type": "string | null | undefined",
+          "description": "Name of relation.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 6
+            },
+            "end": {
+              "line": 78,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "documentParentAttribute",
+          "type": "string | null | undefined",
+          "description": "property of type string.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 6
+            },
+            "end": {
+              "line": 84,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "parentId",
+          "type": "string | null | undefined",
+          "description": "It is parameter for documentSet method.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 6
+            },
+            "end": {
+              "line": 90,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "documentSet",
+          "description": "eslint no-undef: \"error\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 2
+            },
+            "end": {
+              "line": 136,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "parentId"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "openFile",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 137,
+              "column": 2
+            },
+            "end": {
+              "line": 140,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "getFile",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 141,
+              "column": 2
+            },
+            "end": {
+              "line": 156,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "download",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 157,
+              "column": 2
+            },
+            "end": {
+              "line": 193,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "parentId"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "showInput",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 194,
+              "column": 2
+            },
+            "end": {
+              "line": 201,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 209,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "OeDocumentData",
+      "attributes": [
+        {
+          "name": "document",
+          "description": "Object which contains documentName and documentData property.",
+          "sourceRange": {
+            "start": {
+              "line": 56,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "Object | null | undefined"
+        },
+        {
+          "name": "document-id",
+          "description": "Property of type string and has a documentSet as an observer.",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 6
+            },
+            "end": {
+              "line": 66,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "document-post-url",
+          "description": "URL used in makeAjaxcall.",
+          "sourceRange": {
+            "start": {
+              "line": 70,
+              "column": 6
+            },
+            "end": {
+              "line": 72,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "relation-name",
+          "description": "Name of relation.",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 6
+            },
+            "end": {
+              "line": 78,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "document-parent-attribute",
+          "description": "property of type string.",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 6
+            },
+            "end": {
+              "line": 84,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "parent-id",
+          "description": "It is parameter for documentSet method.",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 6
+            },
+            "end": {
+              "line": 90,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "document-changed",
+          "description": "Fired when the `document` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "oe-document-data",
+      "mixins": [
+        "OEAjaxMixin",
+        "OECommonMixin"
+      ]
+    },
+    {
       "description": "",
       "summary": "",
       "path": "oe-resource-link.js",
@@ -4918,6 +4918,805 @@
       "tagname": "oe-resource-page",
       "mixins": [
         "OEAjaxMixin",
+        "OECommonMixin"
+      ]
+    },
+    {
+      "description": "### oe-stepper\n\n`<oe-stepper>` is a control for rendering navigation related steps based on Polymer's `iron-selector` control with following additional features.\n\n1. can support any number of steps within it\n2. emits oe-stepper-event which gives the selected step index and the step label\n3. support internationalization of labels\n4. adds a tick icon if the step is marked as completed.\n5. adds a error icon if the step is marked as error.\n6. provision to mark a step disabled\n```\n<oe-stepper steps='[{\"label\":\"Financial Details\",\"isDisabled\":false,\"hasError\":true,\"isCompleted\":false},\n      {\"label\":\"Demographic Details\",\"isDisabled\":true,\"hasError\":false,\"isCompleted\":false},\n      {\"label\":\"Asset Details\",\"isDisabled\":true,\"hasError\":false,\"isCompleted\":false},\n      {\"label\":\"Location Details\",\"isDisabled\":false,\"hasError\":false,\"isCompleted\":false},\n      {\"label\":\"Location Details\",\"isDisabled\":false,\"hasError\":false,\"isCompleted\":false},\n      {\"label\":\"CIF Details\",\"isDisabled\":false,\"hasError\":false,\"isCompleted\":true}]' value='0'>\n</oe-stepper>\n```\n### Styling\n\nThe following custom properties and mixins are available for styling:\n\n| CSS Variable     | Description   | Default    |\n|----------------  |:-------------:| ----------:|\n| `--oe-stepper-background-color`     | Background color of stepper and step          | `white`                  |\n| `--oe-stepper-line-color`           | Color applied to line                         | `#dfdfdf`                |\n| `--oe-stepper-line-size`            | Height of the line                            | `2px`                    |\n| `--oe-stepper-circle-size`          | Size of circle and stepper                    | `40px`                   |\n| `--oe-stepper-filling-color`        | Color applied to line when selected next step | `#2db36f`                |\n| `--oe-stepper-animate-speed`        | Time for the filling animation                | `0.5s`                   |\n| `--stepsection-primary-color`       | Color applied to step section                 | `--default-primary-color`|\n| `--accent-color`                    | Color applied to step number background       | `--primary-color`        |\n| `--oe-stepper-step-color`           | Color applied to the step number              | `white`                  |\n| `--oe-stepper-anim-speed`           | The animation speed for the circles and lines | `0.5s`                   |\n| `--oe-stepper-step-font-size`       | The font-size of steps inside the circle      | `25px`                   |\n| `--oe-stepper-icon-bg`              | Color applied for the background of icon      | `#2db36f`                |\n| `--oe-stepper-icon-color`           | Color applied to the icon in the step         | `white`                  |\n| `--alert-color`                     | Color applied to step containing error        | `--paper-pink-a400`      |\n| `--oe-stepper-error-fill`           | Color applied for fill icon of error step     | `white`                  |\n| `--oe-stepper-completed-bg`         | Color applied to background of completed step | `#2db36f`                |\n| `--oe-stepper-completed-fill`       | Color applied to fill icon of completed step  | `white`                  |\n| `--oe-stepper-label-width`          | Max width to apply for label truncating       | `100px`                  |\n| `--dark-disable-color`              | Color applied to disabled step label          | `--dark-accent-color`    |\n| `--oe-stepper-data`                 | Mixin applied to the step label               | {}                       |",
+      "summary": "",
+      "path": "oe-stepper.js",
+      "properties": [
+        {
+          "name": "steps",
+          "type": "Array | null | undefined",
+          "description": "Array containing the details if the step is enabled or disabled.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 305,
+              "column": 12
+            },
+            "end": {
+              "line": 308,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Array"
+            }
+          },
+          "defaultValue": "[]"
+        },
+        {
+          "name": "value",
+          "type": "number | null | undefined",
+          "description": "Property reflecting the selected step value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 314,
+              "column": 12
+            },
+            "end": {
+              "line": 319,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "observer": "\"_valueChanged\"",
+              "attributeType": "Number"
+            }
+          },
+          "defaultValue": "0"
+        },
+        {
+          "name": "vertical",
+          "type": "boolean | null | undefined",
+          "description": "Property reflecting the stepper orientation.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 325,
+              "column": 12
+            },
+            "end": {
+              "line": 329,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "selectedLabel",
+          "type": "string | null | undefined",
+          "description": "Property reflecting the selected step label.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 335,
+              "column": 12
+            },
+            "end": {
+              "line": 339,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "attributeType": "String"
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "selectedItem",
+          "type": "Object | null | undefined",
+          "description": "Property reflecting the selected step item.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 345,
+              "column": 12
+            },
+            "end": {
+              "line": 348,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "attributeType": "Object"
+            }
+          }
+        },
+        {
+          "name": "labelPosition",
+          "type": "string | null | undefined",
+          "description": "Property reflecting the label position (inline/bottom).",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 354,
+              "column": 12
+            },
+            "end": {
+              "line": 357,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          },
+          "defaultValue": "\"inline\""
+        },
+        {
+          "name": "showErrorIcon",
+          "type": "boolean | null | undefined",
+          "description": "Boolean property reflecting to show error icon.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 363,
+              "column": 12
+            },
+            "end": {
+              "line": 366,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "showCompletedIcon",
+          "type": "boolean | null | undefined",
+          "description": "Boolean property reflecting to show completed icon.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 372,
+              "column": 12
+            },
+            "end": {
+              "line": 375,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "spreadValue",
+          "type": "number | null | undefined",
+          "description": "Number property that determines the distance between steps.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 380,
+              "column": 12
+            },
+            "end": {
+              "line": 384,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          },
+          "defaultValue": "null"
+        }
+      ],
+      "methods": [
+        {
+          "name": "_displayIndex",
+          "description": "Function that increments the index value by 1 - for the step number",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 393,
+              "column": 4
+            },
+            "end": {
+              "line": 395,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "index",
+              "type": "number",
+              "description": "."
+            }
+          ],
+          "return": {
+            "type": "number",
+            "desc": "incrementing index by one."
+          }
+        },
+        {
+          "name": "_getLayoutStyle",
+          "description": "Function that sets the layout style of iron-selector in oe-stepper",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 403,
+              "column": 4
+            },
+            "end": {
+              "line": 417,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "vertical",
+              "type": "boolean",
+              "description": "Boolean which tells whether oe-stepper vertical or horizontal"
+            },
+            {
+              "name": "spreadValue",
+              "type": "number",
+              "description": "."
+            }
+          ],
+          "return": {
+            "type": "string",
+            "desc": "List of classes to be added to iron-selector"
+          }
+        },
+        {
+          "name": "_calculateLineOffset",
+          "description": "Function that sets the css of the steps",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 425,
+              "column": 4
+            },
+            "end": {
+              "line": 445,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "vertical",
+              "type": "boolean",
+              "description": "Boolean which tells whether oe-stepper vertical or horizontal"
+            },
+            {
+              "name": "labelPosition",
+              "type": "string",
+              "description": "Property of oe-stepper for placement of label"
+            }
+          ],
+          "return": {
+            "type": "string",
+            "desc": "Style to be added for offset of line"
+          }
+        },
+        {
+          "name": "_getDivClass",
+          "description": "Function that sets the css of the steps",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 453,
+              "column": 4
+            },
+            "end": {
+              "line": 477,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "itemChanges",
+              "type": "Object",
+              "description": "Object with changes of current step"
+            },
+            {
+              "name": "labelPosition",
+              "type": "string",
+              "description": "Property of oe-stepper for placement of label"
+            }
+          ],
+          "return": {
+            "type": "string",
+            "desc": "List of classes to be added to current step"
+          }
+        },
+        {
+          "name": "_handleTap",
+          "description": "Function that handles the oe-tap event, which in-turn returns the values\nof the selected step index and the label.\nWait added for retrieving the latest values for the selected step index and the label",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 484,
+              "column": 4
+            },
+            "end": {
+              "line": 493,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_valueChanged",
+          "description": "Observer called on change of the selected step value",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 500,
+              "column": 4
+            },
+            "end": {
+              "line": 513,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "newValue",
+              "type": "number",
+              "description": "."
+            },
+            {
+              "name": "oldValue",
+              "type": "number",
+              "description": "."
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "refreshStepData",
+          "description": "Function which enables the user to refresh the steps",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 519,
+              "column": 4
+            },
+            "end": {
+              "line": 525,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_calculateFilling",
+          "description": "Used to calculate the ratio for line transformation",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 537,
+              "column": 4
+            },
+            "end": {
+              "line": 569,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "steps",
+              "type": "Array",
+              "description": "List of steps in the stepper"
+            },
+            {
+              "name": "step",
+              "type": "number",
+              "description": "Current step number"
+            },
+            {
+              "name": "vertical",
+              "type": "boolean",
+              "description": "Boolean which tells whether oe-stepper vertical or horizontal"
+            },
+            {
+              "name": "labelPosition",
+              "type": "string",
+              "description": "Property of oe-stepper for placement of label"
+            }
+          ],
+          "return": {
+            "type": "string",
+            "desc": "style"
+          }
+        },
+        {
+          "name": "__showMenuView",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 577,
+              "column": 4
+            },
+            "end": {
+              "line": 579,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "stepper"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
+        },
+        {
+          "name": "_showLine",
+          "description": "Used to toggle class for the line.\nReturns no-line which doesn't display line if only one step.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 590,
+              "column": 4
+            },
+            "end": {
+              "line": 599,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "steps",
+              "type": "Array",
+              "description": "List of steps in the stepper"
+            },
+            {
+              "name": "vertical",
+              "type": "boolean",
+              "description": "Boolean which tells whether oe-stepper vertical or horizontal"
+            }
+          ],
+          "return": {
+            "type": "string",
+            "desc": "returns string `line`"
+          }
+        },
+        {
+          "name": "_getStepIcon",
+          "description": "Function that sets the icon for a step when change in the steps array",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 607,
+              "column": 4
+            },
+            "end": {
+              "line": 617,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "itemChanges",
+              "type": "Object",
+              "description": "Object with changes of current step"
+            }
+          ],
+          "return": {
+            "type": "string",
+            "desc": "iron icon value which has error/completed/custom icon"
+          }
+        },
+        {
+          "name": "_hasIcon",
+          "description": "Function that checks whether step should show icon or step number",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 625,
+              "column": 4
+            },
+            "end": {
+              "line": 635,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "itemChanges",
+              "type": "Object",
+              "description": "Object with changes of current step"
+            }
+          ],
+          "return": {
+            "type": "boolean",
+            "desc": "Return true/false whether to show icon or step number"
+          }
+        },
+        {
+          "name": "_redrawLines",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 636,
+              "column": 4
+            },
+            "end": {
+              "line": 642,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_getSpreadStyle",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 643,
+              "column": 4
+            },
+            "end": {
+              "line": 650,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "vertical"
+            },
+            {
+              "name": "spreadValue"
+            },
+            {
+              "name": "index"
+            }
+          ]
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/demo-oe-stepper.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 75,
+          "column": 0
+        },
+        "end": {
+          "line": 652,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "OeStepper",
+      "attributes": [
+        {
+          "name": "steps",
+          "description": "Array containing the details if the step is enabled or disabled.",
+          "sourceRange": {
+            "start": {
+              "line": 305,
+              "column": 12
+            },
+            "end": {
+              "line": 308,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "Array | null | undefined"
+        },
+        {
+          "name": "value",
+          "description": "Property reflecting the selected step value.",
+          "sourceRange": {
+            "start": {
+              "line": 314,
+              "column": 12
+            },
+            "end": {
+              "line": 319,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "vertical",
+          "description": "Property reflecting the stepper orientation.",
+          "sourceRange": {
+            "start": {
+              "line": 325,
+              "column": 12
+            },
+            "end": {
+              "line": 329,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "selected-label",
+          "description": "Property reflecting the selected step label.",
+          "sourceRange": {
+            "start": {
+              "line": 335,
+              "column": 12
+            },
+            "end": {
+              "line": 339,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "selected-item",
+          "description": "Property reflecting the selected step item.",
+          "sourceRange": {
+            "start": {
+              "line": 345,
+              "column": 12
+            },
+            "end": {
+              "line": 348,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "Object | null | undefined"
+        },
+        {
+          "name": "label-position",
+          "description": "Property reflecting the label position (inline/bottom).",
+          "sourceRange": {
+            "start": {
+              "line": 354,
+              "column": 12
+            },
+            "end": {
+              "line": 357,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "show-error-icon",
+          "description": "Boolean property reflecting to show error icon.",
+          "sourceRange": {
+            "start": {
+              "line": 363,
+              "column": 12
+            },
+            "end": {
+              "line": 366,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "show-completed-icon",
+          "description": "Boolean property reflecting to show completed icon.",
+          "sourceRange": {
+            "start": {
+              "line": 372,
+              "column": 12
+            },
+            "end": {
+              "line": 375,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "spread-value",
+          "description": "Number property that determines the distance between steps.",
+          "sourceRange": {
+            "start": {
+              "line": 380,
+              "column": 12
+            },
+            "end": {
+              "line": 384,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "Fired when the `value` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "selected-label-changed",
+          "description": "Fired when the `selectedLabel` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "selected-item-changed",
+          "description": "Fired when the `selectedItem` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "oe-stepper",
+      "mixins": [
         "OECommonMixin"
       ]
     },
@@ -8867,68 +9666,135 @@
       "tagname": "oe-search-header"
     },
     {
-      "description": "### oe-stepper\n\n`<oe-stepper>` is a control for rendering navigation related steps based on Polymer's `iron-selector` control with following additional features.\n\n1. can support any number of steps within it\n2. emits oe-stepper-event which gives the selected step index and the step label\n3. support internationalization of labels\n4. adds a tick icon if the step is marked as completed.\n5. adds a error icon if the step is marked as error.\n6. provision to mark a step disabled\n```\n<oe-stepper steps='[{\"label\":\"Financial Details\",\"isDisabled\":false,\"hasError\":true,\"isCompleted\":false},\n      {\"label\":\"Demographic Details\",\"isDisabled\":true,\"hasError\":false,\"isCompleted\":false},\n      {\"label\":\"Asset Details\",\"isDisabled\":true,\"hasError\":false,\"isCompleted\":false},\n      {\"label\":\"Location Details\",\"isDisabled\":false,\"hasError\":false,\"isCompleted\":false},\n      {\"label\":\"Location Details\",\"isDisabled\":false,\"hasError\":false,\"isCompleted\":false},\n      {\"label\":\"CIF Details\",\"isDisabled\":false,\"hasError\":false,\"isCompleted\":true}]' value='0'>\n</oe-stepper>\n```\n### Styling\n\nThe following custom properties and mixins are available for styling:\n\n| CSS Variable     | Description   | Default    |\n|----------------  |:-------------:| ----------:|\n| `--oe-stepper-background-color`     | Background color of stepper and step          | `white`                  |\n| `--oe-stepper-line-color`           | Color applied to line                         | `#dfdfdf`                |\n| `--oe-stepper-line-size`            | Height of the line                            | `2px`                    |\n| `--oe-stepper-circle-size`          | Size of circle and stepper                    | `40px`                   |\n| `--oe-stepper-filling-color`        | Color applied to line when selected next step | `#2db36f`                |\n| `--oe-stepper-animate-speed`        | Time for the filling animation                | `0.5s`                   |\n| `--stepsection-primary-color`       | Color applied to step section                 | `--default-primary-color`|\n| `--accent-color`                    | Color applied to step number background       | `--primary-color`        |\n| `--oe-stepper-step-color`           | Color applied to the step number              | `white`                  |\n| `--oe-stepper-anim-speed`           | The animation speed for the circles and lines | `0.5s`                   |\n| `--oe-stepper-step-font-size`       | The font-size of steps inside the circle      | `25px`                   |\n| `--oe-stepper-icon-bg`              | Color applied for the background of icon      | `#2db36f`                |\n| `--oe-stepper-icon-color`           | Color applied to the icon in the step         | `white`                  |\n| `--alert-color`                     | Color applied to step containing error        | `--paper-pink-a400`      |\n| `--oe-stepper-error-fill`           | Color applied for fill icon of error step     | `white`                  |\n| `--oe-stepper-completed-bg`         | Color applied to background of completed step | `#2db36f`                |\n| `--oe-stepper-completed-fill`       | Color applied to fill icon of completed step  | `white`                  |\n| `--oe-stepper-label-width`          | Max width to apply for label truncating       | `100px`                  |\n| `--dark-disable-color`              | Color applied to disabled step label          | `--dark-accent-color`    |\n| `--oe-stepper-data`                 | Mixin applied to the step label               | {}                       |",
+      "description": "`oe-widget-container`",
       "summary": "",
-      "path": "oe-stepper.js",
+      "path": "oe-widget-container.js",
       "properties": [
         {
-          "name": "steps",
-          "type": "Array | null | undefined",
-          "description": "Array containing the details if the step is enabled or disabled.",
+          "name": "config",
+          "type": "Object | null | undefined",
+          "description": "Widget Configuration",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 305,
+              "line": 145,
               "column": 12
             },
             "end": {
-              "line": 308,
+              "line": 156,
               "column": 13
             }
           },
           "metadata": {
             "polymer": {
-              "attributeType": "Array"
+              "observer": "\"_configChanged\"",
+              "attributeType": "Object"
             }
           },
-          "defaultValue": "[]"
+          "defaultValue": "{\"columns\":4,\"widgetQuery\":\"*\",\"minHeight\":1,\"minWidth\":1}"
         },
         {
-          "name": "value",
+          "name": "columns",
           "type": "number | null | undefined",
-          "description": "Property reflecting the selected step value.",
+          "description": "The number of columns to create.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 314,
+              "line": 160,
               "column": 12
             },
             "end": {
-              "line": 319,
+              "line": 163,
               "column": 13
             }
           },
           "metadata": {
             "polymer": {
-              "notify": true,
-              "observer": "\"_valueChanged\"",
               "attributeType": "Number"
             }
           },
-          "defaultValue": "0"
+          "defaultValue": "4"
         },
         {
-          "name": "vertical",
+          "name": "enableResizing",
           "type": "boolean | null | undefined",
-          "description": "Property reflecting the stepper orientation.",
+          "description": "Boolean flag to enable dragging of widgets.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 325,
+              "line": 168,
               "column": 12
             },
             "end": {
-              "line": 329,
+              "line": 172,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_enableResizingChanged\"",
+              "attributeType": "Boolean"
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "enableDragging",
+          "type": "boolean | null | undefined",
+          "description": "Boolean flag to enable dragging of widgets.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 177,
+              "column": 12
+            },
+            "end": {
+              "line": 181,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_enableDraggingChanged\"",
+              "attributeType": "Boolean"
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "widgetMargin",
+          "type": "number | null | undefined",
+          "description": "Margin between the widgets",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 186,
+              "column": 12
+            },
+            "end": {
+              "line": 189,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          },
+          "defaultValue": "6"
+        },
+        {
+          "name": "autoArrange",
+          "type": "boolean | null | undefined",
+          "description": "Auto arrange the rows and cols based on available space",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 194,
+              "column": 12
+            },
+            "end": {
+              "line": 197,
               "column": 13
             }
           },
@@ -8940,274 +9806,39 @@
           "defaultValue": "false"
         },
         {
-          "name": "selectedLabel",
-          "type": "string | null | undefined",
-          "description": "Property reflecting the selected step label.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 335,
-              "column": 12
-            },
-            "end": {
-              "line": 339,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "notify": true,
-              "attributeType": "String"
-            }
-          },
-          "defaultValue": "\"\""
-        },
-        {
-          "name": "selectedItem",
+          "name": "_configFromDom",
           "type": "Object | null | undefined",
-          "description": "Property reflecting the selected step item.",
-          "privacy": "public",
+          "description": "",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 345,
+              "line": 199,
               "column": 12
             },
             "end": {
-              "line": 348,
+              "line": 201,
               "column": 13
             }
           },
           "metadata": {
             "polymer": {
-              "notify": true,
               "attributeType": "Object"
             }
           }
-        },
-        {
-          "name": "labelPosition",
-          "type": "string | null | undefined",
-          "description": "Property reflecting the label position (inline/bottom).",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 354,
-              "column": 12
-            },
-            "end": {
-              "line": 357,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          },
-          "defaultValue": "\"inline\""
-        },
-        {
-          "name": "showErrorIcon",
-          "type": "boolean | null | undefined",
-          "description": "Boolean property reflecting to show error icon.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 363,
-              "column": 12
-            },
-            "end": {
-              "line": 366,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "showCompletedIcon",
-          "type": "boolean | null | undefined",
-          "description": "Boolean property reflecting to show completed icon.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 372,
-              "column": 12
-            },
-            "end": {
-              "line": 375,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "spreadValue",
-          "type": "number | null | undefined",
-          "description": "Number property that determines the distance between steps.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 380,
-              "column": 12
-            },
-            "end": {
-              "line": 384,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          },
-          "defaultValue": "null"
         }
       ],
       "methods": [
         {
-          "name": "_displayIndex",
-          "description": "Function that increments the index value by 1 - for the step number",
-          "privacy": "protected",
+          "name": "connectedCallback",
+          "description": "Connected callback to handle templating if custom template is present.",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 393,
+              "line": 261,
               "column": 4
             },
             "end": {
-              "line": 395,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "index",
-              "type": "number",
-              "description": "."
-            }
-          ],
-          "return": {
-            "type": "number",
-            "desc": "incrementing index by one."
-          }
-        },
-        {
-          "name": "_getLayoutStyle",
-          "description": "Function that sets the layout style of iron-selector in oe-stepper",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 403,
-              "column": 4
-            },
-            "end": {
-              "line": 417,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "vertical",
-              "type": "boolean",
-              "description": "Boolean which tells whether oe-stepper vertical or horizontal"
-            },
-            {
-              "name": "spreadValue",
-              "type": "number",
-              "description": "."
-            }
-          ],
-          "return": {
-            "type": "string",
-            "desc": "List of classes to be added to iron-selector"
-          }
-        },
-        {
-          "name": "_calculateLineOffset",
-          "description": "Function that sets the css of the steps",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 425,
-              "column": 4
-            },
-            "end": {
-              "line": 445,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "vertical",
-              "type": "boolean",
-              "description": "Boolean which tells whether oe-stepper vertical or horizontal"
-            },
-            {
-              "name": "labelPosition",
-              "type": "string",
-              "description": "Property of oe-stepper for placement of label"
-            }
-          ],
-          "return": {
-            "type": "string",
-            "desc": "Style to be added for offset of line"
-          }
-        },
-        {
-          "name": "_getDivClass",
-          "description": "Function that sets the css of the steps",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 453,
-              "column": 4
-            },
-            "end": {
-              "line": 477,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "itemChanges",
-              "type": "Object",
-              "description": "Object with changes of current step"
-            },
-            {
-              "name": "labelPosition",
-              "type": "string",
-              "description": "Property of oe-stepper for placement of label"
-            }
-          ],
-          "return": {
-            "type": "string",
-            "desc": "List of classes to be added to current step"
-          }
-        },
-        {
-          "name": "_handleTap",
-          "description": "Function that handles the oe-tap event, which in-turn returns the values\nof the selected step index and the label.\nWait added for retrieving the latest values for the selected step index and the label",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 484,
-              "column": 4
-            },
-            "end": {
-              "line": 493,
+              "line": 266,
               "column": 5
             }
           },
@@ -9218,30 +9849,63 @@
           }
         },
         {
-          "name": "_valueChanged",
-          "description": "Observer called on change of the selected step value",
-          "privacy": "protected",
+          "name": "getWidgetConfigFromDom",
+          "description": "",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 500,
+              "line": 267,
               "column": 4
             },
             "end": {
-              "line": 513,
+              "line": 297,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_enableResizingChanged",
+          "description": "Handle resize of widgets",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 302,
+              "column": 4
+            },
+            "end": {
+              "line": 320,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "renderWidgets",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 322,
+              "column": 4
+            },
+            "end": {
+              "line": 364,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "newValue",
-              "type": "number",
-              "description": "."
-            },
-            {
-              "name": "oldValue",
-              "type": "number",
-              "description": "."
+              "name": "widgetConfigs"
             }
           ],
           "return": {
@@ -9249,8 +9913,232 @@
           }
         },
         {
-          "name": "refreshStepData",
-          "description": "Function which enables the user to refresh the steps",
+          "name": "setStyles",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 365,
+              "column": 4
+            },
+            "end": {
+              "line": 375,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "el"
+            },
+            {
+              "name": "config"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_generateGridMap",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 381,
+              "column": 4
+            },
+            "end": {
+              "line": 387,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "size"
+            }
+          ]
+        },
+        {
+          "name": "_placeValid",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 388,
+              "column": 4
+            },
+            "end": {
+              "line": 412,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "config"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__fillGrid",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 413,
+              "column": 4
+            },
+            "end": {
+              "line": 420,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "row"
+            },
+            {
+              "name": "col"
+            },
+            {
+              "name": "width"
+            },
+            {
+              "name": "height"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__isValidPlacement",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 422,
+              "column": 4
+            },
+            "end": {
+              "line": 439,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "row"
+            },
+            {
+              "name": "col"
+            },
+            {
+              "name": "width"
+            },
+            {
+              "name": "height"
+            }
+          ]
+        },
+        {
+          "name": "__attachDragEvents",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 440,
+              "column": 4
+            },
+            "end": {
+              "line": 456,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "config"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__attachResizeEvents",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 457,
+              "column": 4
+            },
+            "end": {
+              "line": 484,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "config"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__createResizeHandler",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 485,
+              "column": 4
+            },
+            "end": {
+              "line": 498,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "resizeDragStart",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 499,
+              "column": 4
+            },
+            "end": {
+              "line": 518,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            },
+            {
+              "name": "dragConfig"
+            }
+          ]
+        },
+        {
+          "name": "resizeDrag",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -9258,179 +10146,184 @@
               "column": 4
             },
             "end": {
-              "line": 525,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_calculateFilling",
-          "description": "Used to calculate the ratio for line transformation",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 537,
-              "column": 4
-            },
-            "end": {
-              "line": 569,
+              "line": 540,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "steps",
-              "type": "Array",
-              "description": "List of steps in the stepper"
+              "name": "event"
             },
             {
-              "name": "step",
-              "type": "number",
-              "description": "Current step number"
-            },
-            {
-              "name": "vertical",
-              "type": "boolean",
-              "description": "Boolean which tells whether oe-stepper vertical or horizontal"
-            },
-            {
-              "name": "labelPosition",
-              "type": "string",
-              "description": "Property of oe-stepper for placement of label"
+              "name": "dragConfig"
             }
           ],
           "return": {
-            "type": "string",
-            "desc": "style"
+            "type": "void"
           }
         },
         {
-          "name": "__showMenuView",
+          "name": "resizeDragEnd",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 541,
+              "column": 4
+            },
+            "end": {
+              "line": 550,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "resizeMouseEnter",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 552,
+              "column": 4
+            },
+            "end": {
+              "line": 555,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "resizeMouseLeave",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 557,
+              "column": 4
+            },
+            "end": {
+              "line": 560,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__moveToFirst",
           "description": "",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 577,
+              "line": 563,
               "column": 4
             },
             "end": {
-              "line": 579,
+              "line": 567,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "stepper"
+              "name": "arr"
             },
             {
-              "name": "vertical"
+              "name": "obj"
             }
           ]
         },
         {
-          "name": "_showLine",
-          "description": "Used to toggle class for the line.\nReturns no-line which doesn't display line if only one step.",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 590,
-              "column": 4
-            },
-            "end": {
-              "line": 599,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "steps",
-              "type": "Array",
-              "description": "List of steps in the stepper"
-            },
-            {
-              "name": "vertical",
-              "type": "boolean",
-              "description": "Boolean which tells whether oe-stepper vertical or horizontal"
-            }
-          ],
-          "return": {
-            "type": "string",
-            "desc": "returns string `line`"
-          }
-        },
-        {
-          "name": "_getStepIcon",
-          "description": "Function that sets the icon for a step when change in the steps array",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 607,
-              "column": 4
-            },
-            "end": {
-              "line": 617,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "itemChanges",
-              "type": "Object",
-              "description": "Object with changes of current step"
-            }
-          ],
-          "return": {
-            "type": "string",
-            "desc": "iron icon value which has error/completed/custom icon"
-          }
-        },
-        {
-          "name": "_hasIcon",
-          "description": "Function that checks whether step should show icon or step number",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 625,
-              "column": 4
-            },
-            "end": {
-              "line": 635,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "itemChanges",
-              "type": "Object",
-              "description": "Object with changes of current step"
-            }
-          ],
-          "return": {
-            "type": "boolean",
-            "desc": "Return true/false whether to show icon or step number"
-          }
-        },
-        {
-          "name": "_redrawLines",
+          "name": "handleDrag",
           "description": "",
-          "privacy": "protected",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 636,
+              "line": 568,
               "column": 4
             },
             "end": {
-              "line": 642,
+              "line": 588,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            },
+            {
+              "name": "dragConfig"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "handleDragEnd",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 589,
+              "column": 4
+            },
+            "end": {
+              "line": 615,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            },
+            {
+              "name": "dragConfig"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_saveConfig",
+          "description": "Saves the grid configuration after widgets are modified.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 620,
+              "column": 4
+            },
+            "end": {
+              "line": 632,
               "column": 5
             }
           },
@@ -9441,29 +10334,103 @@
           }
         },
         {
-          "name": "_getSpreadStyle",
-          "description": "",
+          "name": "_configChanged",
+          "description": "Observes changes to config property to re-render the widgets.",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 643,
+              "line": 639,
               "column": 4
             },
             "end": {
-              "line": 650,
+              "line": 652,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "vertical"
+              "name": "newVal",
+              "type": "Object",
+              "description": "new value for configuration"
             },
             {
-              "name": "spreadValue"
+              "name": "oldVal",
+              "type": "Object",
+              "description": "."
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_enableDraggingChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 659,
+              "column": 4
+            },
+            "end": {
+              "line": 668,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_mediaChanged",
+          "description": "Checks if a media query is matched and sets the matched configuration.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 674,
+              "column": 4
+            },
+            "end": {
+              "line": 689,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "data",
+              "type": "Object",
+              "description": "change data of 'config.match' property"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "handleDragStart",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 692,
+              "column": 4
+            },
+            "end": {
+              "line": 709,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
             },
             {
-              "name": "index"
+              "name": "dragConfig"
             }
           ]
         }
@@ -9471,99 +10438,35 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/demo-oe-stepper.html",
+          "url": "demo/demo-oe-widget-container.html",
           "description": ""
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 75,
+          "line": 30,
           "column": 0
         },
         "end": {
-          "line": 652,
+          "line": 710,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "OeStepper",
+      "name": "OeWidgetContainer",
       "attributes": [
         {
-          "name": "steps",
-          "description": "Array containing the details if the step is enabled or disabled.",
+          "name": "config",
+          "description": "Widget Configuration",
           "sourceRange": {
             "start": {
-              "line": 305,
+              "line": 145,
               "column": 12
             },
             "end": {
-              "line": 308,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "Array | null | undefined"
-        },
-        {
-          "name": "value",
-          "description": "Property reflecting the selected step value.",
-          "sourceRange": {
-            "start": {
-              "line": 314,
-              "column": 12
-            },
-            "end": {
-              "line": 319,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "vertical",
-          "description": "Property reflecting the stepper orientation.",
-          "sourceRange": {
-            "start": {
-              "line": 325,
-              "column": 12
-            },
-            "end": {
-              "line": 329,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "selected-label",
-          "description": "Property reflecting the selected step label.",
-          "sourceRange": {
-            "start": {
-              "line": 335,
-              "column": 12
-            },
-            "end": {
-              "line": 339,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "selected-item",
-          "description": "Property reflecting the selected step item.",
-          "sourceRange": {
-            "start": {
-              "line": 345,
-              "column": 12
-            },
-            "end": {
-              "line": 348,
+              "line": 156,
               "column": 13
             }
           },
@@ -9571,87 +10474,127 @@
           "type": "Object | null | undefined"
         },
         {
-          "name": "label-position",
-          "description": "Property reflecting the label position (inline/bottom).",
+          "name": "columns",
+          "description": "The number of columns to create.",
           "sourceRange": {
             "start": {
-              "line": 354,
+              "line": 160,
               "column": 12
             },
             "end": {
-              "line": 357,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "show-error-icon",
-          "description": "Boolean property reflecting to show error icon.",
-          "sourceRange": {
-            "start": {
-              "line": 363,
-              "column": 12
-            },
-            "end": {
-              "line": 366,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "show-completed-icon",
-          "description": "Boolean property reflecting to show completed icon.",
-          "sourceRange": {
-            "start": {
-              "line": 372,
-              "column": 12
-            },
-            "end": {
-              "line": 375,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "spread-value",
-          "description": "Number property that determines the distance between steps.",
-          "sourceRange": {
-            "start": {
-              "line": 380,
-              "column": 12
-            },
-            "end": {
-              "line": 384,
+              "line": 163,
               "column": 13
             }
           },
           "metadata": {},
           "type": "number | null | undefined"
+        },
+        {
+          "name": "enable-resizing",
+          "description": "Boolean flag to enable dragging of widgets.",
+          "sourceRange": {
+            "start": {
+              "line": 168,
+              "column": 12
+            },
+            "end": {
+              "line": 172,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "enable-dragging",
+          "description": "Boolean flag to enable dragging of widgets.",
+          "sourceRange": {
+            "start": {
+              "line": 177,
+              "column": 12
+            },
+            "end": {
+              "line": 181,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "widget-margin",
+          "description": "Margin between the widgets",
+          "sourceRange": {
+            "start": {
+              "line": 186,
+              "column": 12
+            },
+            "end": {
+              "line": 189,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "auto-arrange",
+          "description": "Auto arrange the rows and cols based on available space",
+          "sourceRange": {
+            "start": {
+              "line": 194,
+              "column": 12
+            },
+            "end": {
+              "line": 197,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
         }
       ],
       "events": [
         {
           "type": "CustomEvent",
-          "name": "value-changed",
-          "description": "Fired when the `value` property changes.",
+          "name": "grid-render-complete",
+          "description": "Fired when render is completed.",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "selected-label-changed",
-          "description": "Fired when the `selectedLabel` property changes.",
+          "name": "widget-drag",
+          "description": "Fired when a widget is being dragged",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "selected-item-changed",
-          "description": "Fired when the `selectedItem` property changes.",
+          "name": "widget-drag-start",
+          "description": "Fired on drag start of a widget",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "widget-drag-stop",
+          "description": "Fired on drag end of a widget",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "widget-resize",
+          "description": "Fired when a widget is being resized",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "widget-resize-start",
+          "description": "Fired on resize start of a widget",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "widget-resize-stop",
+          "description": "Fired on resize end of a widget",
           "metadata": {}
         }
       ],
@@ -9660,7 +10603,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "oe-stepper",
+      "tagname": "oe-widget-container",
       "mixins": [
         "OECommonMixin"
       ]
@@ -13661,181 +14604,46 @@
       },
       "slots": [],
       "tagname": "oe-vbox"
-    },
+    }
+  ],
+  "classes": [
     {
-      "description": "`oe-widget-container`",
+      "description": "",
       "summary": "",
-      "path": "oe-widget-container.js",
-      "properties": [
+      "path": "oe-control-switcher.js",
+      "properties": [],
+      "methods": [
         {
-          "name": "config",
-          "type": "Object | null | undefined",
-          "description": "Widget Configuration",
-          "privacy": "public",
+          "name": "_selectorToggle",
+          "description": "invoked when _selected value changes\nfires the event",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 145,
-              "column": 12
+              "line": 137,
+              "column": 4
             },
             "end": {
-              "line": 156,
-              "column": 13
+              "line": 147,
+              "column": 5
             }
           },
-          "metadata": {
-            "polymer": {
-              "observer": "\"_configChanged\"",
-              "attributeType": "Object"
-            }
-          },
-          "defaultValue": "{\"columns\":4,\"widgetQuery\":\"*\",\"minHeight\":1,\"minWidth\":1}"
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
         },
         {
-          "name": "columns",
-          "type": "number | null | undefined",
-          "description": "The number of columns to create.",
-          "privacy": "public",
+          "name": "_valueChanged",
+          "description": "invoked when the value is set\nand toggled the selected to that value",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 160,
-              "column": 12
+              "line": 152,
+              "column": 4
             },
             "end": {
               "line": 163,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          },
-          "defaultValue": "4"
-        },
-        {
-          "name": "enableResizing",
-          "type": "boolean | null | undefined",
-          "description": "Boolean flag to enable dragging of widgets.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 168,
-              "column": 12
-            },
-            "end": {
-              "line": 172,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "observer": "\"_enableResizingChanged\"",
-              "attributeType": "Boolean"
-            }
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "enableDragging",
-          "type": "boolean | null | undefined",
-          "description": "Boolean flag to enable dragging of widgets.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 177,
-              "column": 12
-            },
-            "end": {
-              "line": 181,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "observer": "\"_enableDraggingChanged\"",
-              "attributeType": "Boolean"
-            }
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "widgetMargin",
-          "type": "number | null | undefined",
-          "description": "Margin between the widgets",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 186,
-              "column": 12
-            },
-            "end": {
-              "line": 189,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          },
-          "defaultValue": "6"
-        },
-        {
-          "name": "autoArrange",
-          "type": "boolean | null | undefined",
-          "description": "Auto arrange the rows and cols based on available space",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 194,
-              "column": 12
-            },
-            "end": {
-              "line": 197,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "_configFromDom",
-          "type": "Object | null | undefined",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 199,
-              "column": 12
-            },
-            "end": {
-              "line": 201,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Object"
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "connectedCallback",
-          "description": "Connected callback to handle templating if custom template is present.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 261,
-              "column": 4
-            },
-            "end": {
-              "line": 266,
               "column": 5
             }
           },
@@ -13844,769 +14652,24 @@
           "return": {
             "type": "void"
           }
-        },
-        {
-          "name": "getWidgetConfigFromDom",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 267,
-              "column": 4
-            },
-            "end": {
-              "line": 297,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_enableResizingChanged",
-          "description": "Handle resize of widgets",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 302,
-              "column": 4
-            },
-            "end": {
-              "line": 320,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "renderWidgets",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 322,
-              "column": 4
-            },
-            "end": {
-              "line": 364,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "widgetConfigs"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "setStyles",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 365,
-              "column": 4
-            },
-            "end": {
-              "line": 375,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "el"
-            },
-            {
-              "name": "config"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_generateGridMap",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 381,
-              "column": 4
-            },
-            "end": {
-              "line": 387,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "size"
-            }
-          ]
-        },
-        {
-          "name": "_placeValid",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 388,
-              "column": 4
-            },
-            "end": {
-              "line": 412,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "config"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "__fillGrid",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 413,
-              "column": 4
-            },
-            "end": {
-              "line": 420,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "row"
-            },
-            {
-              "name": "col"
-            },
-            {
-              "name": "width"
-            },
-            {
-              "name": "height"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "__isValidPlacement",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 422,
-              "column": 4
-            },
-            "end": {
-              "line": 439,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "row"
-            },
-            {
-              "name": "col"
-            },
-            {
-              "name": "width"
-            },
-            {
-              "name": "height"
-            }
-          ]
-        },
-        {
-          "name": "__attachDragEvents",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 440,
-              "column": 4
-            },
-            "end": {
-              "line": 456,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "config"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "__attachResizeEvents",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 457,
-              "column": 4
-            },
-            "end": {
-              "line": 484,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "config"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "__createResizeHandler",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 485,
-              "column": 4
-            },
-            "end": {
-              "line": 498,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": []
-        },
-        {
-          "name": "resizeDragStart",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 499,
-              "column": 4
-            },
-            "end": {
-              "line": 518,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            },
-            {
-              "name": "dragConfig"
-            }
-          ]
-        },
-        {
-          "name": "resizeDrag",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 519,
-              "column": 4
-            },
-            "end": {
-              "line": 540,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            },
-            {
-              "name": "dragConfig"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "resizeDragEnd",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 541,
-              "column": 4
-            },
-            "end": {
-              "line": 550,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "resizeMouseEnter",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 552,
-              "column": 4
-            },
-            "end": {
-              "line": 555,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "resizeMouseLeave",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 557,
-              "column": 4
-            },
-            "end": {
-              "line": 560,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "__moveToFirst",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 563,
-              "column": 4
-            },
-            "end": {
-              "line": 567,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "arr"
-            },
-            {
-              "name": "obj"
-            }
-          ]
-        },
-        {
-          "name": "handleDrag",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 568,
-              "column": 4
-            },
-            "end": {
-              "line": 588,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            },
-            {
-              "name": "dragConfig"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "handleDragEnd",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 589,
-              "column": 4
-            },
-            "end": {
-              "line": 615,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            },
-            {
-              "name": "dragConfig"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_saveConfig",
-          "description": "Saves the grid configuration after widgets are modified.",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 620,
-              "column": 4
-            },
-            "end": {
-              "line": 632,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_configChanged",
-          "description": "Observes changes to config property to re-render the widgets.",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 639,
-              "column": 4
-            },
-            "end": {
-              "line": 652,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "newVal",
-              "type": "Object",
-              "description": "new value for configuration"
-            },
-            {
-              "name": "oldVal",
-              "type": "Object",
-              "description": "."
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_enableDraggingChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 659,
-              "column": 4
-            },
-            "end": {
-              "line": 668,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_mediaChanged",
-          "description": "Checks if a media query is matched and sets the matched configuration.",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 674,
-              "column": 4
-            },
-            "end": {
-              "line": 689,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "data",
-              "type": "Object",
-              "description": "change data of 'config.match' property"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "handleDragStart",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 692,
-              "column": 4
-            },
-            "end": {
-              "line": 709,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "event"
-            },
-            {
-              "name": "dragConfig"
-            }
-          ]
         }
       ],
       "staticMethods": [],
-      "demos": [
-        {
-          "url": "demo/demo-oe-widget-container.html",
-          "description": ""
-        }
-      ],
+      "demos": [],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 30,
+          "line": 43,
           "column": 0
         },
         "end": {
-          "line": 710,
+          "line": 164,
           "column": 1
         }
       },
       "privacy": "public",
-      "superclass": "HTMLElement",
-      "name": "OeWidgetContainer",
-      "attributes": [
-        {
-          "name": "config",
-          "description": "Widget Configuration",
-          "sourceRange": {
-            "start": {
-              "line": 145,
-              "column": 12
-            },
-            "end": {
-              "line": 156,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "Object | null | undefined"
-        },
-        {
-          "name": "columns",
-          "description": "The number of columns to create.",
-          "sourceRange": {
-            "start": {
-              "line": 160,
-              "column": 12
-            },
-            "end": {
-              "line": 163,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "enable-resizing",
-          "description": "Boolean flag to enable dragging of widgets.",
-          "sourceRange": {
-            "start": {
-              "line": 168,
-              "column": 12
-            },
-            "end": {
-              "line": 172,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "enable-dragging",
-          "description": "Boolean flag to enable dragging of widgets.",
-          "sourceRange": {
-            "start": {
-              "line": 177,
-              "column": 12
-            },
-            "end": {
-              "line": 181,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "widget-margin",
-          "description": "Margin between the widgets",
-          "sourceRange": {
-            "start": {
-              "line": 186,
-              "column": 12
-            },
-            "end": {
-              "line": 189,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "auto-arrange",
-          "description": "Auto arrange the rows and cols based on available space",
-          "sourceRange": {
-            "start": {
-              "line": 194,
-              "column": 12
-            },
-            "end": {
-              "line": 197,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        }
-      ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "grid-render-complete",
-          "description": "Fired when render is completed.",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "widget-drag",
-          "description": "Fired when a widget is being dragged",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "widget-drag-start",
-          "description": "Fired on drag start of a widget",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "widget-drag-stop",
-          "description": "Fired on drag end of a widget",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "widget-resize",
-          "description": "Fired when a widget is being resized",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "widget-resize-start",
-          "description": "Fired on resize start of a widget",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "widget-resize-stop",
-          "description": "Fired on resize end of a widget",
-          "metadata": {}
-        }
-      ],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "oe-widget-container",
-      "mixins": [
-        "OECommonMixin"
-      ]
-    }
-  ],
-  "classes": [
+      "name": "OeControlSwitcher"
+    },
     {
       "description": "",
       "summary": "",
@@ -14797,69 +14860,6 @@
       },
       "privacy": "public",
       "name": "Draggable"
-    },
-    {
-      "description": "",
-      "summary": "",
-      "path": "oe-control-switcher.js",
-      "properties": [],
-      "methods": [
-        {
-          "name": "_selectorToggle",
-          "description": "invoked when _selected value changes\nfires the event",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 137,
-              "column": 4
-            },
-            "end": {
-              "line": 147,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_valueChanged",
-          "description": "invoked when the value is set\nand toggled the selected to that value",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 152,
-              "column": 4
-            },
-            "end": {
-              "line": 163,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 43,
-          "column": 0
-        },
-        "end": {
-          "line": 164,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "name": "OeControlSwitcher"
     }
   ]
 }
