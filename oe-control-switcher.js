@@ -128,6 +128,10 @@ class OeControlSwitcher extends OECommonMixin(PolymerElement) {
                 type: Object,
                 notify: true,
                 observer: '_valueChanged'
+            },
+            required: {
+                type: Boolean,
+                notify: true
             }
         };
     }
@@ -152,15 +156,24 @@ class OeControlSwitcher extends OECommonMixin(PolymerElement) {
      */
     _valueChanged() {
         var self = this;
-        if (self.value && (self._selected === undefined)) {
-            if (self.value === self.config.onValue) {
+        if (self.value) {
+            if (self.value === self.config.onValue && this._selected !== 0) {
                 self.set('_selected', 0);
             }
-            else if (self.value === self.config.offValue) {
+            else if (self.value === self.config.offValue && this._selected !== 1) {
                 self.set('_selected', 1);
             }
-
         }
     }
+    _validate() {
+        if (this.required && this.value === undefined) {
+          this.setValidity(false, 'valueMissing');
+          return false;
+        } else {
+          this.setValidity(true, undefined);
+          return true;
+        }
+      }
+    
 }
 customElements.define(OeControlSwitcher.is, OEFieldMixin(OeControlSwitcher));
