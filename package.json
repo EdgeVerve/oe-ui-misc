@@ -24,7 +24,7 @@
     "@polymer/paper-menu-button": "3.0.1",
     "@polymer/paper-toolbar": "3.0.1",
     "@polymer/polymer": "3.1.0",
-    "jquery": "3.3.1",
+    "jquery": "3.4.1",
     "jquery.gridster": "git+https://github.com/dustmoo/gridster.js.git",
     "moment": "2.24.0",
     "oe-ajax": "2.0.0",
