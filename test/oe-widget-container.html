@@ -19,84 +19,51 @@
   <script src="../node_modules/fakerest/dist/FakeRest.min.js"></script>
   <script src="../node_modules/sinon/pkg/sinon.js"></script>
   <script type="module">
-  import 'oe-data-table/oe-data-table.js';
-  import '../oe-widget-container.js';
-  // import '../demo/widgets/chat-bot.js';
+    import 'oe-data-table/oe-data-table.js';
+    import '../oe-widget-container.js';
   </script>
 </head>
 
 <body>
-  <test-fixture id="oe-widget-container-fixture">
+  <test-fixture id="basic-fixture">
     <template>
       <div style="width: 500px; height: 500px;">
-        <oe-widget-container id="configWidget">
-          <chat-bot initial-message="Hello, I am your Travel Bot. Please tell me your travel plan." url="/message" title="Travel Bot"
-            name="chatbot" class="widget-element"></chat-bot>
-          <oe-data-table id="simple-table" label="Simple Table" name="datatable" class="widget-element"></oe-data-table>
+        <oe-widget-container>
+          <paper-card heading="Card 1" data-row=0 data-col=1 data-width=1 data-height=1>
+
+            <div class="card-actions">
+              <paper-button>Share</paper-button>
+              <paper-button>Explore!</paper-button>
+            </div>
+          </paper-card>
+          <paper-card heading="Card 2">
+
+            <div class="card-actions">
+              <paper-button>Share</paper-button>
+              <paper-button>Explore!</paper-button>
+            </div>
+          </paper-card>
         </oe-widget-container>
       </div>
     </template>
   </test-fixture>
-  <test-fixture id="basic-fixture">
-    <template>
-      <div style="width: 500px; height: 500px;">
-      <oe-widget-container>
-        <paper-card heading="Card 1" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-          <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
-          </div>
-          <div class="card-actions">
-            <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
-          </div>
-        </paper-card>
-        <paper-card heading="Card 2" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-          <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
-          </div>
-          <div class="card-actions">
-            <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
-          </div>
-        </paper-card>
-      </oe-widget-container>
-    </div>
-    </template>
-  </test-fixture>
   <test-fixture id="name-fixture">
-    <template>
+      <template>
+    <div>
+    
       <oe-widget-container>
-        <paper-card name="card" heading="Card 1" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-          <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
-          </div>
-          <div class="card-actions">
-            <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
-          </div>
-        </paper-card>
-        <paper-card name="card" heading="Card 2" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-          <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one
-            of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
-          </div>
-          <div class="card-actions">
-            <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
-          </div>
-        </paper-card>
+        <oe-data-table id="simple-table" label="Simple Table" name="datatable" class="widget-element"></oe-data-table>
       </oe-widget-container>
-    </template>
+   
+    </div>
+  </template>
   </test-fixture>
   <script type="module">
-  import '@polymer/iron-test-helpers/test-helpers.js';
-  import '@polymer/iron-test-helpers/mock-interactions.js';
-  import '@polymer/paper-card/paper-card.js';
-  import 'oe-data-table/oe-data-table.js';
-  
+    import '@polymer/iron-test-helpers/test-helpers.js';
+    import '@polymer/iron-test-helpers/mock-interactions.js';
+    import '@polymer/paper-card/paper-card.js';
+    import 'oe-data-table/oe-data-table.js';
+
     var element, testElement, server; // eslint-disable-line no-unused-vars
 
     suite('oe-widget-container', function () {
@@ -106,43 +73,14 @@
         server.autoRespond = true;
         server.respondImmediately = true;
 
-        server.respondWith('POST', /.*\/.*/, function (req) {
-          req.respond(200, {
-            'Content-Type': 'text/html'
-          }, 'I am here to help you with travel plans');
-        });
-        var divContainer = fixture('oe-widget-container-fixture');
+        // server.respondWith('POST', /.*\/.*/, function (req) {
+        //   req.respond(200, {
+        //     'Content-Type': 'text/html'
+        //   }, 'I am here to help you with travel plans');
+        // });       
         var divBasicContainer = fixture('basic-fixture');
-        flush(function(){
-          element = divContainer.querySelector('#configWidget');
-          testElement = divBasicContainer.querySelector('oe-widget-container');
-        var dataTable = document.getElementById('simple-table');
-        dataTable.set('columns', [{
-          key: 'id',
-          label: 'Id',
-          type: 'number'
-        }, {
-          key: 'name',
-          label: 'Name',
-          type: 'string'
-        }]);
-
-        dataTable.set('items', [{
-          id: 1,
-          name: 'Admin'
-        }, {
-          id: 2,
-          name: 'Developer'
-        }, {
-          id: 3,
-          name: 'Designer'
-        }, {
-          id: 4,
-          name: 'Tester'
-        }]);
-      done();
-        })
-        });
+        setTimeout(done, 1000);
+      });
 
       teardown(function () {
         server.restore();
@@ -216,21 +154,59 @@
               });
           });
       });*/
-      test('test to hide/show widgets from the settings menu', function (done) {
-        
-        var divContainer = fixture('oe-widget-container-fixture');
+      test('test to hide/show the resize icon', function (done) {
+
+
         var divBasicContainer = fixture('basic-fixture');
-        flush(function(){
-          //element = divContainer.querySelector('#configWidget');
-          element = divBasicContainer.querySelector('oe-widget-container');
-        debugger;
-        element.set('autoArrange',true);
-        element._refreshWidgets();
         flush(function () {
-          var menu = element.shadowRoot.querySelector('#settings');
-          MockInteractions.tap(menu, {
-            'emulateTouch': true
+
+          element = divBasicContainer.querySelector('oe-widget-container');
+
+          element.set('autoArrange', true);
+          element.set('enableResizing', true);
+          flush(function () {
+            var menu = element.querySelector('paper-card');
+            menu.fire('mouseenter',event);
+            assert.equal(menu.querySelector('.resize-handler').hidden,false);
+            done();
+
           });
+        });
+
+      });
+      test('check the oe-widget-container with oe-data-table', function (done) {
+       
+        var divBasicContainer = fixture('name-fixture');
+        flush(function () {
+
+        element = divBasicContainer.querySelector('oe-widget-container');
+        var dataTable = document.getElementById('simple-table');
+        dataTable.set('columns', [{
+          key: 'id',
+          label: 'Id',
+          type: 'number'
+        }, {
+          key: 'name',
+          label: 'Name',
+          type: 'string'
+        }]);
+
+        dataTable.set('items', [{
+          id: 1,
+          name: 'Admin'
+        }, {
+          id: 2,
+          name: 'Developer'
+        }, {
+          id: 3,
+          name: 'Designer'
+        }, {
+          id: 4,
+          name: 'Tester'
+        }]);
+          element.set('enableDragging', true);
+
+          element.renderWidgets();
           flush(function () {
             var gridsterNodes = element.$.contentElement.assignedNodes();
             var nodeList = [].filter.call(gridsterNodes, function (item) {
@@ -238,119 +214,16 @@
                 return true;
               }
             });
-            assert.equal(nodeList[0].getAttribute('name'), 'chatbot');
-            assert.equal(nodeList[0].classList.contains('hide-widget-element'), false);
-            var widgetcheck = element.shadowRoot.querySelectorAll('#settings paper-checkbox');
-            
-            assert.equal(widgetcheck.length, 2);
-            assert.equal(widgetcheck[0].checked, true);
-            MockInteractions.tap(widgetcheck[0]);
-            // widgetcheck[0].fire('change');
-            element.async(function () {
-              assert.equal(widgetcheck[0].checked, false);
-              var saveConfig = element.shadowRoot.querySelector('#saveConfig');
-              MockInteractions.tap(saveConfig, {
-                'emulateTouch': true
-              });
-              flush(function () {
-                assert.equal(menu.opened, false);
-                var gridsterNodes = element.$.contentElement.assignedNodes();
-                var nodeList = [].filter.call(gridsterNodes, function (item) {
-                  if (item.nodeType == Node.ELEMENT_NODE) {
-                    return true;
-                  }
-                });
-                assert.equal(nodeList[0].getAttribute('name'), 'chatbot');
-                assert.equal(nodeList[0].classList.contains('hide-widget-element'), true);
-                MockInteractions.tap(menu, {
-                  'emulateTouch': true
-                });
-                element.async(function () {
-                  var widgetcheck = element.shadowRoot.querySelectorAll(
-                    '#settings paper-checkbox');
-                  assert.equal(widgetcheck.length, 2);
-                  assert.equal(widgetcheck[0].checked, false);
-                  MockInteractions.tap(widgetcheck[0]);
-                  widgetcheck[0].fire('change');
-                  element.async(function () {
-                    assert.equal(widgetcheck[0].checked, true);
-                    var saveConfig = element.shadowRoot.querySelector(
-                      '#saveConfig');
-                    MockInteractions.tap(saveConfig, {
-                      'emulateTouch': true
-                    });
-                    flush(function () {
-                      assert.equal(menu.opened, false);
-                      var gridsterNodes = element.$.contentElement.assignedNodes();
-                      var nodeList = [].filter.call(gridsterNodes, function (item) {
-                        if (item.nodeType == Node.ELEMENT_NODE) {
-                          return true;
-                        }
-                      });
-                      assert.equal(nodeList[0].getAttribute('name'), 'chatbot');
-                      assert.equal(nodeList[0].classList.contains(
-                        'hide-widget-element'), false);
-                      done();
-                    });
-                  }, 100);
-                }, 100);
-              });
-            }, 100);
-          }, 100);
-        });
-        });
-      });
-      test('check if the oe-widget-container is initialized using the widgetConfig if set', function (done) {
-        var divContainer = fixture('oe-widget-container-fixture');
-        var divBasicContainer = fixture('basic-fixture');
-        flush(function(){
-          //element = divContainer.querySelector('#configWidget');
-          element = divBasicContainer.querySelector('oe-widget-container');
-        debugger;
-        element.set('config', {
-          'widgetMargin': 32,
-          'columns': 4,
-          'enableResize': true
-        });
-        element.set('widgets.0.conf',{
-            'name': 'chatbot',
-            'hidden': false,
-            'sizeX': 1,
-            'sizeY': 2,
-            'row': 1,
-            'col': 1
-          })
-        element.set('widgets.1.conf',{
-            'name': 'datatable',
-            'hidden': false,
-            'sizeX': 2,
-            'sizeY': 2,
-            'row': 2,
-            'col': 2
-          })
-        element.set('enableDragging',true);
-        element.render();
-        flush(function () {
-          var gridsterNodes = element.$.contentElement.assignedNodes();
-          var nodeList = [].filter.call(gridsterNodes, function (item) {
-            if (item.nodeType == Node.ELEMENT_NODE) {
-              return true;
-            }
-          });
-          flush(function () {
-            assert.equal(nodeList[1].getAttribute('name'), 'datatable');
-            assert.equal(nodeList[1].hidden, false);
-            assert.equal(nodeList[1].getAttribute('data-sizex'), 2);
-            assert.equal(nodeList[1].getAttribute('data-sizey'), 2);
-            assert.equal(nodeList[1].getAttribute('data-row'), 2);
-            assert.equal(nodeList[1].getAttribute('data-col'), 2);
-            assert.equal(nodeList[0].getAttribute('data-sizex'), 1);
-            assert.equal(nodeList[0].getAttribute('data-sizey'), 2);
-            done();
+            flush(function () {
+              assert.equal(nodeList[0].getAttribute('name'), 'datatable');
+              assert.equal(nodeList[0].hidden, false);
+              assert.equal(nodeList[0].getAttribute('data-height'), 1);
+              assert.equal(nodeList[0].getAttribute('data-width'), 1);
+              done();
+            });
           });
         });
       });
-    });
     });
 
   </script>
