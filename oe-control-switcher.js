@@ -96,7 +96,7 @@ class OeControlSwitcher extends OECommonMixin(PolymerElement) {
     }
     </style>
    
-    <iron-selector id="selector" on-iron-activate="_handleChange" selected="{{value}}" attr-for-selected="xvalue" class="layout horizontal box">
+    <iron-selector id="selector" on-iron-select="_handleChange" selected="{{value}}" attr-for-selected="xvalue" class="layout horizontal box">
       <div id="on" class="on-value pointer" xvalue=[[config.onValue]]>
         <oe-i18n-msg msgid="[[config.onLabel]]"></oe-i18n-msg>
       </div>
@@ -112,10 +112,11 @@ class OeControlSwitcher extends OECommonMixin(PolymerElement) {
   }
 
   _handleChange(e) {
-    if (this.fieldId && e.detail.selected !== undefined) {
+    var selected = e.target.selected;
+    if (this.fieldId && selected !== undefined) {
       this.fire('oe-field-changed', {
         fieldId: this.fieldId,
-        value: e.detail.selected
+        value: selected  
       });
     }
   }
