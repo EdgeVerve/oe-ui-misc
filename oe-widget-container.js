@@ -218,7 +218,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
 
             /**
              * Fired on drag end of a widget
-             * @event widget-drag-stop
+             * @event widget-drag-end
              */
 
             /**
@@ -233,7 +233,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
 
             /**
              * Fired on resize end of a widget
-             * @event widget-resize-stop
+             * @event widget-resize-end
              */
 
         };
@@ -327,41 +327,41 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
             gridMap: this._generateGridMap(this._maxColumns),
             lastRowFilled: 0
         };
-       
-        
-            widgetConfigs.forEach(function (config, index) {
-                if (config.width > this._maxColumns) {
-                    return;
-                }
-               
-              
-                    var customConf = config;
-    
-                    if (this.autoArrange && !config.el.classList.contains('current-dragging')) {
-                        // customConf = Object.assign({},config,{
-                        //   row:0,
-                        //   column:0
-                        // }); 
-                        customConf.row = 0;
-                        customConf.column = 0;
-                    }
-        
-                    this._placeValid(customConf);
-                    this.setStyles(customConf.el, customConf);
-                    var stringableConf = Object.assign({}, customConf, {
-                        el: undefined,
-                        _draggable: undefined,
-                        _resizable: undefined,
-                        index: index
-                    });
-                    customConf.el.setAttribute('drag-conf', JSON.stringify(stringableConf));
-                
-               
-            }.bind(this));
-    
-            this.set('_computedHeight', (this._gridConfig.lastRowFilled) * this._gridUnit);
-        
-        
+
+
+        widgetConfigs.forEach(function (config, index) {
+            if (config.width > this._maxColumns) {
+                return;
+            }
+
+
+            var customConf = config;
+
+            if (this.autoArrange && !config.el.classList.contains('current-dragging')) {
+                // customConf = Object.assign({},config,{
+                //   row:0,
+                //   column:0
+                // }); 
+                customConf.row = 0;
+                customConf.column = 0;
+            }
+
+            this._placeValid(customConf);
+            this.setStyles(customConf.el, customConf);
+            var stringableConf = Object.assign({}, customConf, {
+                el: undefined,
+                _draggable: undefined,
+                _resizable: undefined,
+                index: index
+            });
+            customConf.el.setAttribute('drag-conf', JSON.stringify(stringableConf));
+
+
+        }.bind(this));
+
+        this.set('_computedHeight', (this._gridConfig.lastRowFilled) * this._gridUnit);
+
+
     }
     setStyles(el, config) {
         var unit = this._gridUnit;
@@ -389,7 +389,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
     _placeValid(config) {
         var grid = this._gridConfig.gridMap;
         var maxColumns = this._maxColumns;
-       
+
         var row = config.row;
         var column = config.column;
         while (!this.__isValidPlacement(row, column, config.width, config.height)) {
@@ -408,8 +408,8 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
         var elEndRow = row + config.height;
         var lastRowFilled = this._gridConfig.lastRowFilled;
         this._gridConfig.lastRowFilled = lastRowFilled < elEndRow ? elEndRow : lastRowFilled;
-       
-        
+
+
     }
     __fillGrid(row, col, width, height) {
         var grid = this._gridConfig.gridMap;
@@ -453,7 +453,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
                 dragEndFn: this.handleDragEnd.bind(this)
             });
         }
-      
+
     }
     __attachResizeEvents(config) {
         var resizeHandler = config.el.querySelector('.resize-handler');
@@ -498,6 +498,12 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
         return handler;
     }
     resizeDragStart(event, dragConfig) {
+        this.debounce('widget-resize-start', function () {
+        this.fire('widget-resize-start', {
+            target: this,
+            ui: dragConfig,
+        });
+    });
         this.classList.add('is-resizing');
         this.isRendering = true;
 
@@ -518,6 +524,12 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
         return true;
     }
     resizeDrag(event, dragConfig) {
+        this.debounce('widget-resize', function () {
+        this.fire('widget-resize', {
+            target: this,
+            ui: dragConfig,
+        });
+    });
         var minHeight = this._resizeConfig.config.minHeight || this.minHeight || 1;
         var minWidth = this._resizeConfig.config.minWidth || this.minWidth || 1;
         var newHeight = this._resizeConfig.height + dragConfig.deltaYUnit;
@@ -539,7 +551,9 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
         this.widgetConfigs = widgets;
         this.renderWidgets(widgets);
     }
-    resizeDragEnd(event) {
+    resizeDragEnd(event, dragConfig) {
+
+
         console.log('resize ending');
         event.stopPropagation();
         this.isRendering = false;
@@ -548,6 +562,12 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
         // var conf = this.widgetConfigs.splice(0, 1)[0];
         // this.widgetConfigs.splice(oldIndex, 0, conf);
         // this.renderWidgets();
+        this.debounce('widget-resize-end', function () {
+        this.fire('widget-resize-end', {
+            target: this,
+            ui: dragConfig,
+        });
+    });
     }
 
     resizeMouseEnter(event) {
@@ -567,15 +587,21 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
         return index;
     }
     handleDrag(event, dragConfig) {
-        if(this._dragConfig){
+        this.debounce('widget-drag', function () {
+            this.fire('widget-drag', {
+                target: this,
+                ui: dragConfig
+            });
+        });
+        if (this._dragConfig) {
             var newRow = this._dragConfig.row + dragConfig.deltaYUnit;
             newRow = (newRow < 0) ? 0 : newRow;
-    
+
             var newCol = this._dragConfig.column + dragConfig.deltaXUnit;
             var elWidth = this._dragConfig.config.width;
             newCol = (newCol < 0) ? 0 : newCol;
             newCol = ((newCol + elWidth) > this._maxColumns) ? (this._maxColumns - elWidth) : newCol;
-    
+
             var widgets = this._dragConfig.widgets.map(function (conf) {
                 return Object.assign({}, conf);
             });
@@ -585,10 +611,10 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
             this.widgetConfigs = widgets;
             this.renderWidgets(widgets);
         }
-       
+
     }
     handleDragEnd(event, dragConfig) {
-       
+        
         console.log('dragging ending');
         event.stopPropagation();
         this.isRendering = false;
@@ -608,11 +634,17 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
             } else {
                 return 0;
             }
+            self.fire('grid-render-complete');
         });
-
+        this.debounce('widget-drag-end', function () {
+            this.fire('widget-drag-end', {
+                target: this,
+                ui: dragConfig
+            });
+        });
         this.renderWidgets();
-        
-        
+
+
     }
 
     /**
@@ -691,6 +723,12 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
 
 
     handleDragStart(event, dragConfig) {
+        this.debounce('widget-drag-start', function () {
+        this.fire('widget-drag-start', {
+            target: this,
+            ui: dragConfig
+        });
+    });
         this.classList.add('is-dragging');
         this.isRendering = true;
 
