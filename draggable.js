@@ -1,7 +1,7 @@
 class Draggable {
 
     constructor(el, options) {
-        options = options || {}
+        options = options || {};
         this.options = {
             preventDrag: options.preventDrag || null,
             disableDrag: options.disableDrag || false,
@@ -10,7 +10,7 @@ class Draggable {
             dragStartFn: options.dragStartFn || null,
             dragFn: options.dragFn || null,
             dragEndFn: options.dragEndFn || null
-        }
+        };
         this.dragEl = el;
         this.toggleDrag(!this.options.disableDrag);
     }
@@ -57,7 +57,7 @@ class Draggable {
     }
 
     updateOptions(options) {
-        options = options || {}
+        options = options || {};
         this.options = {
             preventDrag: options.preventDrag || this.options.preventDrag,
             disableDrag: options.disableDrag || this.options.disableDrag,
@@ -66,7 +66,7 @@ class Draggable {
             dragStartFn: options.dragStartFn || this.options.dragStartFn,
             dragFn: options.dragFn || this.options.dragFn,
             dragEndFn: options.dragEndFn || this.options.dragEndFn
-        }
+        };
     }
 
     _handleDragStart(event) {
@@ -78,7 +78,7 @@ class Draggable {
             element: this.dragEl,
             deltaXUnit: 0,
             deltaYUnit: 0
-        }
+        };
         this.options.dragStartFn && this.options.dragStartFn(event, this._dragConfig);
     }
 

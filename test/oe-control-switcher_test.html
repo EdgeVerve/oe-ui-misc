@@ -1,0 +1,127 @@
+<!-- ©2015-2016 EdgeVerve Systems Limited (a fully owned Infosys subsidiary), Bangalore, India. All Rights Reserved.
+The EdgeVerve proprietary software program ("Program"), is protected by copyrights laws, international treaties and other pending or existing intellectual property rights in India, the United States and other countries.
+The Program may contain/reference third party or open source components, the rights to which continue to
+remain with the applicable third party licensors or the open source community as the case may be and nothing
+here transfers the rights to the third party and open source components, except as expressly permitted.
+Any unauthorized reproduction, storage, transmission in any form or by any means (including without limitation to electronic, mechanical, printing, photocopying, recording or  otherwise), or any distribution of this Program,or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law. -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" class="IE=edge,chrome=1">
+  <meta name="viewport" class="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+  <title>oe-control-switcher test</title>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+
+  <script src="../node_modules/sinon/pkg/sinon.js"></script>
+  <!-- <script type="module" src="/@polymer/iron-test-helpers/mock-interactions.js"></script> -->
+  <script type="module" src="../oe-control-switcher.js"></script>
+
+
+
+</head>
+
+<body>
+
+  <test-fixture id="BasicTestFixture">
+    <template>
+      <oe-control-switcher field-id="myfield"></oe-control-switcher>
+    </template>
+  </test-fixture>
+
+  <script type="module">
+    import '@polymer/iron-test-helpers/test-helpers.js';
+        import '@polymer/iron-test-helpers/mock-interactions.js';
+        var ele;
+
+
+        suite('oe-control-switcher', function () {
+          const config = {onLabel: 'Bangalore',onValue: 'bn',offLabel: 'Delhi',offValue: 'dl'};
+          
+          var ele;
+          setup(function(done) {
+            ele = fixture('BasicTestFixture');
+            ele.set('config', config);
+            flush(done);
+          });
+            
+
+          test('Default no element will be selected', function (done) {
+              expect(ele.value).to.be.undefined;
+              expect(ele.$.selector.selected).to.be.undefined;
+              done();
+          });
+
+          test('When value is set, Selected item refreshes', function (done) {
+            ele.set('value',config.offValue);
+
+            flush(function () {
+              expect(ele.$.selector.selected).to.equal(config.offValue);
+              expect(ele.$.on.classList.contains('iron-selected')).to.not.be.ok;
+              expect(ele.$.off.classList.contains('iron-selected')).to.be.ok;
+              done();
+            })
+          });
+
+          test('tap on, the on-value is selected and element updated', function (done) {
+            ele.addEventListener('oe-field-changed', function(evt){
+              expect(evt.detail).to.deep.equal({fieldId: 'myfield', value: config.onValue});
+              flush(function () {
+                expect(ele.value).to.equal(config.onValue);
+                expect(ele.$.selector.selected).to.equal(config.onValue);
+                expect(ele.$.on.classList.contains('iron-selected')).to.be.ok;
+                expect(ele.$.off.classList.contains('iron-selected')).to.not.be.ok;
+                done();
+              });
+            });
+            MockInteractions.tap(ele.$.on);
+          });
+
+          test('tap off, the off-value is selected and element updated', function (done) {
+            ele.addEventListener('oe-field-changed', function(evt){
+              expect(evt.detail).to.deep.equal({fieldId: 'myfield', value: config.offValue});
+              flush(function () {
+                expect(ele.value).to.equal(config.offValue);
+                expect(ele.$.selector.selected).to.equal(config.offValue);
+                expect(ele.$.off.classList.contains('iron-selected')).to.be.ok;
+                expect(ele.$.on.classList.contains('iron-selected')).to.not.be.ok;
+                done();
+              });
+            });
+            MockInteractions.tap(ele.$.off);
+          });
+
+          test('oe-field-change event is NOT fired if field-id is not set', function(done){
+            ele.set('fieldId', undefined);
+            ele.addEventListener('oe-field-changed', function(evt){
+              expect(false).to.equal(true);
+            });
+            MockInteractions.tap(ele.$.on);
+            setTimeout(done, 2000);
+          });
+
+          test('when value is set, oe-field-ok is fired and oe-field-changed is NOT fired', function (done) {
+            ele.addEventListener('oe-field-changed', function(evt){
+              expect(false).to.equal(true);
+            });
+            ele.addEventListener('oe-field-ok', function(evt){
+              expect(evt.detail.fieldId).to.equal('myfield');
+              /* Call done after 1 second to make sure oe-field-changed is not fired */
+              setTimeout(done, 1000);
+            });
+            ele.set('value',config.offValue);
+          });
+        });
+
+    </script>
+
+</body>
+
+</html>

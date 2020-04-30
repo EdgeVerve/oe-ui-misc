@@ -151,7 +151,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
                         widgetQuery: '*',
                         minHeight: 1,
                         minWidth: 1
-                    }
+                    };
                 },
                 observer: '_configChanged'
             },
@@ -276,7 +276,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
         widgetElements.forEach(function (el) {
             var widgetConf = prevwidConf.find(function (conf) {
                 return conf.el === el;
-            })
+            });
 
             if (!widgetConf) {
                 widgetConf = {
@@ -285,7 +285,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
                     width: isNaN(el.dataset.width) ? 1 : Number.parseInt(el.dataset.width),
                     height: isNaN(el.dataset.height) ? 1 : Number.parseInt(el.dataset.height),
                     el: el
-                }
+                };
             }
 
             this.__attachDragEvents(widgetConf);
@@ -321,13 +321,12 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
     }
 
     renderWidgets(widgetConfigs) {
-        var valid = [];
         widgetConfigs = widgetConfigs || this.widgetConfigs;
 
         this._gridConfig = {
             gridMap: this._generateGridMap(this._maxColumns),
             lastRowFilled: 0
-        }
+        };
        
         
             widgetConfigs.forEach(function (config, index) {
@@ -515,7 +514,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
             width: config.width,
             height: config.height,
             resizeElIndex: index
-        }
+        };
         return true;
     }
     resizeDrag(event, dragConfig) {
@@ -706,7 +705,7 @@ class OeWidgetContainer extends mixinBehaviors([IronResizableBehavior], OECommon
             widgets: this.widgetConfigs,
             column: config.column,
             dragElIndex: oldIndex
-        }
+        };
         return true;
     }
 }

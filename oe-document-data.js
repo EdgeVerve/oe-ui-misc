@@ -63,7 +63,7 @@ class OeDocumentData extends OECommonMixin(OEAjaxMixin(PolymerElement)) {
        */
       documentId: {
         type: String,
-        observer: documentSet
+        observer: 'documentSet'
       },
       /**
        * URL used in makeAjaxcall.

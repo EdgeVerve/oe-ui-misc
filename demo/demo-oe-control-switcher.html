@@ -1,0 +1,64 @@
+<!--
+  Â©2016-2017 EdgeVerve Systems Limited (a fully owned Infosys subsidiary),
+  Bangalore, India. All Rights Reserved.
+-->
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <title>oe-control-switcher demo</title>
+    <script type="module">
+        import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+        import '@polymer/iron-demo-helpers/demo-snippet.js';
+        import '@polymer/paper-styles/paper-styles.js';
+        import '../oe-control-switcher.js';
+    </script>
+    <custom-style>
+        <style is="custom-style" include="demo-pages-shared-styles">
+            #main2 {
+                --off-value-selected: {
+                    border: 0.5px solid #ff000052;
+                    color: red;
+                }
+            }
+        </style>
+    </custom-style>
+
+</head>
+
+<body unresolved>
+    <div>
+
+        <h3>Control switcher element</h3>
+        <demo-snippet id="snippet">
+            <template>
+                <div style="display: flex;">
+                <oe-control-switcher style = "margin-right: 20px;" id="main1" value="bn" config='{"onLabel": "Bangalore","onValue": "bn","offLabel": "Delhi","offValue": "dl"}'></oe-control-switcher>
+                <oe-control-switcher  id="main3" value="mn" config='{"onLabel": "Mangalore","onValue": "mn","offLabel": "Pune","offValue": "pn"}'></oe-control-switcher>
+            </div>
+            </template>
+        </demo-snippet>
+        <h3>Control switcher with Theme</h3>
+        <demo-snippet id="snippet">
+
+            <template>
+                <style is="custom-style" include="demo-pages-shared-styles">
+                    #main2 {
+                        --off-value-selected: {
+                            border: 0.5px solid #ff000052;
+                            color: red;
+                        }
+                    }
+                </style>
+                <oe-control-switcher id="main2" config='{"onLabel": "Mangalore","onValue": "mn","offLabel": "Mumbai","offValue": "mb"}'></oe-control-switcher>
+            </template>
+        </demo-snippet>
+
+    </div>
+</body>
+
+</html>
